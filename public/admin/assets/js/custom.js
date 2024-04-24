@@ -28,4 +28,22 @@ $(document).ready(function(){
             }
         });
     });
+
+   $(document).ready(function(){
+    var newPasswordInput = $("#new_password");
+    var confirmPasswordInput = $("#confirm_password");
+    var verifyConfirmPassword = $("#verifyConfirmPassword");
+
+    $("#confirm_password").keyup(function(){
+        var new_password = newPasswordInput.val();
+        var confirm_password = confirmPasswordInput.val();
+
+        if(new_password !== confirm_password) {
+            verifyConfirmPassword.html("Passwords do not match!");
+        } else {
+            verifyConfirmPassword.html("Passwords match!");
+        }
+    });
+});
+
 });
