@@ -91,9 +91,66 @@ public function updatePassword(Request $request)
 }
 
 
-public function updateAdminDetails(){
-    return view('update_admin_details');
+public function updateAdminDetails(Request $request)
+{
+    if ($request->isMethod('post')) {
+        $data = $request->all();
+
+        $rules = [
+                'admin_name' => 'required|max:255',
+                'admin_mobile' => ['required', 'regex:/^\+880[0-9]{10}$/'],
+              //  'admin_image' => 'image'
+        ];
+
+        $customMessage = [
+            'admin_name.required' => "Name is required",
+            'admin_mobile.required' => 'Mobile number is required',
+            'admin_mobile.numeric' => 'Mobile must be numeric',
+            'admin_mobile.regex' => "The admin mobile must start with +880 followed by exactly 10 numeric digits.",
+           // 'admin_image.image' => "valid image required",
+        ];
+
+        $validator = Validator::make($data, $rules, $customMessage);
+
+ //upload images
+            // if ($request->hasFile('admin_image')) {
+            //     $image_tmp = $request->file('admin_image');
+            //     if ($image_tmp->isValid()) {
+            //         //Get image extension
+            //         $extension = $image_tmp->getClientOriginalExtension();
+            //         //Generate new image name
+            //         $image_name = rand(111, 99999) . '.' . $extension;
+            //         $image_path = 'admin/images/admin/' . $image_name;
+            //         Image::make($image_tmp)->save($image_path);
+            //     }
+            // } else if (!empty($data['current_image'])) {
+            //     $image_name = $data['current_image'];
+            // } else {
+            //     $image_name = "";
+            // }
+
+                   if ($validator->fails()) {
+            // If validation fails, set error message and redirect back
+            return redirect()->back()->with('error_message', $validator->errors()->first());
+        }
+
+
+        // Update Admin Details
+        $admin = Admin::where('email', Auth::guard('admin')->user()->email)->first();
+        if ($admin) {
+            $admin->name = $data['admin_name'];
+            $admin->mobile = $data['admin_mobile'];
+            $admin->save();
+
+            return redirect()->back()->with('success_message', 'Admin profile updated successfully');
+        } else {
+            return redirect()->back()->with('error_message', 'Admin not found');
+        }
+    }
+
+    return view('admin.update_admin_details');
 }
+
 
 
 

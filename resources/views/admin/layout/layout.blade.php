@@ -83,6 +83,10 @@
     <!-- Custom Js -->
     <script src="{{ url('admin/assets/js/custom.js') }}"></script>
 
+    <!-- BEGIN: update Admin details-->
+    <script src="{{ url('admin/js/scripts/pages/account-setting.js') }}"></script>
+    <!-- END: update Admin details-->
+
 </body>
 <!-- END: Body-->
 

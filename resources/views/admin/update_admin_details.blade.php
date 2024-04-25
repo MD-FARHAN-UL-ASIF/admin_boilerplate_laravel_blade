@@ -19,8 +19,7 @@
                     <div class="card-body">
 
                         <div class="card-text">
-                            <p>“Every lie we tell incurs a debt to the truth. Sooner or
-                                later, that debt is paid.” <code>~Chernobyl</code> </p>
+                            <p>“Don’t waste your time looking back. You’re not going that way.” <code>~Vikings</code> </p>
                         </div>
                         @if (Session::has('error_message'))
                             <div class="alert bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
@@ -39,52 +38,96 @@
                             </div>
                         @endif
                         <form class="form form-horizontal striped-rows" method="POST"
-                            action="{{ url('admin/update_password') }}">
+                            action="{{ url('admin/update_admin_details') }}">
                             @csrf
-                            <div class="form-body">
-                                <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="admin_email">Email</label>
-                                    <div class="col-md-9">
-                                        <input id="admin_email" class="form-control"
-                                            value="{{ Auth::guard('admin')->user()->email }}" readonly="">
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane active" id="account-vertical-general"
+                                                    aria-labelledby="account-pill-general" aria-expanded="true">
+                                                    <div class="media">
+                                                        <a href="javascript: void(0);">
+                                                            <img src="{{ asset('admin/images/portrait/small/avatar-s-18.png') }}"
+                                                                class="rounded mr-75" alt="profile image" height="64"
+                                                                width="64">
+                                                        </a>
+                                                        <div class="media-body mt-75">
+                                                            <div
+                                                                class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                                <label
+                                                                    class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
+                                                                    for="account-upload">Upload new photo</label>
+                                                                <input type="file" id="account-upload" hidden>
+                                                                <button
+                                                                    class="btn btn-sm btn-secondary ml-50">Reset</button>
+                                                            </div>
+                                                            <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or
+                                                                    PNG. Max size of 800kB</small></p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <form novalidate>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="admin_email">Email</label>
+                                                                        <input type="email" class="form-control"
+                                                                            id="admin_email"
+                                                                            value="{{ Auth::guard('admin')->user()->email }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="type">Role</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="type"value="{{ Auth::guard('admin')->user()->type }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="admin_name">Name</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="admin_name" name="admin_name"
+                                                                            value="{{ Auth::guard('admin')->user()->name }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <div class="controls">
+                                                                        <label for="admin_mobile">Mobile</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="admin_mobile" name="admin_mobile"
+                                                                            value="{{ Auth::guard('admin')->user()->mobile }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
+                                                                    changes</button>
+                                                                <a href="{{ url('admin/dashboard') }}"
+                                                                    class="btn btn-light mr-1">
+                                                                    <i class="feather icon-x"></i> Cancel
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="current_password">Current Password</label>
-                                    <div class="col-md-9">
-                                        <input type="password" id="current_password" class="form-control"
-                                            name="current_password" placeholder="Please enter your current password">
-                                        <span id="verifyCurrentPassword"></span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="new_password">New Password</label>
-                                    <div class="col-md-9">
-                                        <input type="password" id="new_password" class="form-control" name="new_password"
-                                            placeholder="Please enter your new password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="confirm_password">Confirm New
-                                        Password</label>
-                                    <div class="col-md-9">
-                                        <input type="password" id="confirm_password" class="form-control"
-                                            name="confirm_password" placeholder="Please enter your previous password">
-                                        <span id="verifyConfirmPassword"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-actions center">
-                                <a href="{{ url('admin/dashboard') }}" class="btn btn-warning mr-1">
-                                    <i class="feather icon-x"></i> Cancel
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check-square-o"></i> Save
-                                </button>
                             </div>
                         </form>
                     </div>

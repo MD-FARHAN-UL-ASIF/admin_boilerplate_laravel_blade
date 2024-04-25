@@ -274,7 +274,8 @@
                                     class="user-name">{{ Auth::guard('admin')->user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="user-profile.html"><i class="feather icon-user"></i>
+                                <a class="dropdown-item" href="{{ url('admin/update_admin_details') }}"><i
+                                        class="feather icon-user"></i>
                                     Edit Profile</a>
                                 <a class="dropdown-item" href="{{ url('admin/update_password') }}"><i
                                         class="feather icon-edit"></i> Update Password</a>
