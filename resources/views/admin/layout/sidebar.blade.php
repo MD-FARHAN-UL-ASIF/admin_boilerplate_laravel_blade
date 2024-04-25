@@ -4,8 +4,14 @@
                 <li class=" navigation-header"><span>General</span><i class=" feather icon-minus" data-toggle="tooltip"
                         data-placement="right" data-original-title="General"></i>
                 </li>
-                <li class=" nav-item"><a href="{{ url('admin/dashboard') }}"><i class="feather icon-home"></i><span
-                            class="menu-title" data-i18n="Dashboard">Dashboard</span><span </li>
+
+                @php
+                    $active = Session::get('page') == 'dashboard' ? 'active' : '';
+                @endphp
+
+                <li class=" nav-item {{ $active }}"><a href="{{ url('admin/dashboard') }}"><i
+                            class="feather icon-home"></i><span class="menu-title"
+                            data-i18n="Dashboard">Dashboard</span><span </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-monitor"></i><span class="menu-title"
                             data-i18n="Templates">Templates</span></a>
                     <ul class="menu-content">
@@ -51,7 +57,8 @@
                     <ul class="menu-content">
                         <li><a class="menu-item" href="#" data-i18n="Page Layouts">Page Layouts</a>
                             <ul class="menu-content">
-                                <li><a class="menu-item" href="layout-1-column.html" data-i18n="1 column">1 column</a>
+                                <li><a class="menu-item" href="layout-1-column.html" data-i18n="1 column">1
+                                        column</a>
                                 </li>
                                 <li><a class="menu-item" href="layout-2-columns.html" data-i18n="2 columns">2
                                         columns</a>
@@ -128,7 +135,8 @@
                                 <li><a class="menu-item" href="navbar-fixed-top.html" data-i18n="Fixed Top">Fixed
                                         Top</a>
                                 </li>
-                                <li><a class="menu-item" href="#" data-i18n="Hide on Scroll">Hide on Scroll</a>
+                                <li><a class="menu-item" href="#" data-i18n="Hide on Scroll">Hide on
+                                        Scroll</a>
                                     <ul class="menu-content">
                                         <li><a class="menu-item" href="navbar-hide-on-scroll-top.html"
                                                 data-i18n="Hide on Scroll Top">Hide on Scroll Top</a>
@@ -233,7 +241,8 @@
                                         data-i18n="Breadcrumbs with button">Breadcrumbs with button</a>
                                 </li>
                                 <li><a class="menu-item" href="headers-breadcrumbs-with-round-button.html"
-                                        data-i18n="Breadcrumbs with round button 2">Breadcrumbs with round button 2</a>
+                                        data-i18n="Breadcrumbs with round button 2">Breadcrumbs with round button
+                                        2</a>
                                 </li>
                                 <li><a class="menu-item" href="headers-breadcrumbs-with-stats.html"
                                         data-i18n="Breadcrumbs with stats">Breadcrumbs with stats</a>
@@ -363,11 +372,14 @@
                 <li class=" nav-item"><a href="#"><i class="feather icon-file-text"></i><span
                             class="menu-title" data-i18n="Invoice">Invoice</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="invoice-list.html" data-i18n="Invoice List">Invoice List</a>
+                        <li><a class="menu-item" href="invoice-list.html" data-i18n="Invoice List">Invoice
+                                List</a>
                         </li>
-                        <li><a class="menu-item" href="invoice-view.html" data-i18n="Invoice View">Invoice View</a>
+                        <li><a class="menu-item" href="invoice-view.html" data-i18n="Invoice View">Invoice
+                                View</a>
                         </li>
-                        <li><a class="menu-item" href="invoice-edit.html" data-i18n="Invoice Edit">invoice Edit</a>
+                        <li><a class="menu-item" href="invoice-edit.html" data-i18n="Invoice Edit">invoice
+                                Edit</a>
                         </li>
                         <li><a class="menu-item" href="invoice-add.html" data-i18n="Invoice Add">invoice Add</a>
                         </li>
@@ -410,13 +422,17 @@
                 <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
                             data-i18n="Users">Users</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="page-users-list.html" data-i18n="Users List">Users List</a>
+                        <li><a class="menu-item" href="page-users-list.html" data-i18n="Users List">Users
+                                List</a>
                         </li>
-                        <li><a class="menu-item" href="page-users-view.html" data-i18n="Users View">Users View</a>
+                        <li><a class="menu-item" href="page-users-view.html" data-i18n="Users View">Users
+                                View</a>
                         </li>
-                        <li><a class="menu-item" href="page-users-edit.html" data-i18n="Users Edit">Users Edit</a>
+                        <li><a class="menu-item" href="page-users-edit.html" data-i18n="Users Edit">Users
+                                Edit</a>
                         </li>
-                        <li><a class="menu-item" href="user-profile.html" data-i18n="Users Profile">Users Profile</a>
+                        <li><a class="menu-item" href="user-profile.html" data-i18n="Users Profile">Users
+                                Profile</a>
                         </li>
                         <li><a class="menu-item" href="user-cards.html" data-i18n="Users Cards">Users Cards</a>
                         </li>
@@ -425,7 +441,8 @@
                 <li class=" nav-item"><a href="#"><i class="feather icon-image"></i><span class="menu-title"
                             data-i18n="Gallery">Gallery</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="gallery-grid.html" data-i18n="Gallery Grid">Gallery Grid</a>
+                        <li><a class="menu-item" href="gallery-grid.html" data-i18n="Gallery Grid">Gallery
+                                Grid</a>
                         </li>
                         <li><a class="menu-item" href="gallery-grid-with-desc.html"
                                 data-i18n="Gallery Grid with Desc">Gallery Grid with Desc</a>
@@ -460,7 +477,8 @@
                 <li class=" nav-item"><a href="#"><i class="feather icon-unlock"></i><span class="menu-title"
                             data-i18n="Authentication">Authentication</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="login-simple.html" data-i18n="Login Simple">Login Simple</a>
+                        <li><a class="menu-item" href="login-simple.html" data-i18n="Login Simple">Login
+                                Simple</a>
                         </li>
                         <li><a class="menu-item" href="login-with-bg.html" data-i18n="Login with Bg">Login with
                                 Bg</a>
@@ -504,9 +522,11 @@
                     <ul class="menu-content">
                         <li><a class="menu-item" href="coming-soon-flat.html" data-i18n="Flat">Flat</a>
                         </li>
-                        <li><a class="menu-item" href="coming-soon-bg-image.html" data-i18n="Bg image">Bg image</a>
+                        <li><a class="menu-item" href="coming-soon-bg-image.html" data-i18n="Bg image">Bg
+                                image</a>
                         </li>
-                        <li><a class="menu-item" href="coming-soon-bg-video.html" data-i18n="Bg video">Bg video</a>
+                        <li><a class="menu-item" href="coming-soon-bg-video.html" data-i18n="Bg video">Bg
+                                video</a>
                         </li>
                     </ul>
                 </li>
@@ -714,7 +734,8 @@
                         </li>
                         <li><a class="menu-item" href="ex-component-knob.html" data-i18n="Knob">Knob</a>
                         </li>
-                        <li><a class="menu-item" href="ex-component-block-ui.html" data-i18n="Block UI">Block UI</a>
+                        <li><a class="menu-item" href="ex-component-block-ui.html" data-i18n="Block UI">Block
+                                UI</a>
                         </li>
                         <li><a class="menu-item" href="ex-component-date-time-picker.html"
                                 data-i18n="DateTime Picker">DateTime Picker</a>
@@ -979,9 +1000,11 @@
                         <li><a class="menu-item" href="#" data-i18n="Second level child">Second level
                                 child</a>
                             <ul class="menu-content">
-                                <li><a class="menu-item" href="#" data-i18n="Third level">Third level</a>
+                                <li><a class="menu-item" href="#" data-i18n="Third level">Third
+                                        level</a>
                                 </li>
-                                <li><a class="menu-item" href="#" data-i18n="Third level child">Third level
+                                <li><a class="menu-item" href="#" data-i18n="Third level child">Third
+                                        level
                                         child</a>
                                     <ul class="menu-content">
                                         <li><a class="menu-item" href="#" data-i18n="Fourth level">Fourth

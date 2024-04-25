@@ -48,25 +48,34 @@
                                                 <div role="tabpanel" class="tab-pane active" id="account-vertical-general"
                                                     aria-labelledby="account-pill-general" aria-expanded="true">
                                                     <div class="media">
-                                                        <a href="javascript: void(0);">
-                                                            <img src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
-                                                                class="rounded mr-75" alt="profile image" height="64"
-                                                                width="64">
-                                                        </a>
-                                                        <div class="media-body mt-75">
-                                                            <div
-                                                                class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                                <label
-                                                                    class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
-                                                                    for="admin_image">Upload new photo</label>
-                                                                <input type="file" id="admin_image" name="admin_image"
-                                                                    accept="image/*" hidden>
-                                                                <button
-                                                                    class="btn btn-sm btn-secondary ml-50">Reset</button>
+                                                        @if (!empty(Auth::guard('admin')->user()->image))
+                                                            <a href="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
+                                                                target="blank">
+                                                                <img src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
+                                                                    class="rounded mr-75" alt="profile image" height="64"
+                                                                    width="64">
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ asset('admin/images/admin_images/no_image.jpg') }}"
+                                                                target="blank">
+                                                                <img src="{{ asset('admin/images/admin_images/no_image.jpg') }}"
+                                                                    class="rounded mr-75" alt="profile image" height="64"
+                                                                    width="64">
+                                                            </a>
+                                                            <div class="media-body mt-75">
+                                                                <div
+                                                                    class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                                    <label
+                                                                        class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
+                                                                        for="admin_image">Upload new photo</label>
+                                                                    <input type="file" id="admin_image"
+                                                                        name="admin_image" accept="image/*" hidden>
+                                                                    <button
+                                                                        class="btn btn-sm btn-secondary ml-50">Reset</button>
+                                                                </div>
+                                                                <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or
+                                                                        PNG. Max size of 800kB</small></p>
                                                             </div>
-                                                            <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or
-                                                                    PNG. Max size of 800kB</small></p>
-                                                        </div>
                                                     </div>
                                                     <hr>
                                                     <form novalidate>

@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Session;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
+        Session::put('page','dashboard');
         return view('admin.dashboard');
     }
 

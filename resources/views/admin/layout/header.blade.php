@@ -268,10 +268,15 @@
                         <li class="dropdown dropdown-user nav-item"><a
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#"
                                 data-toggle="dropdown">
-                                <div class="avatar avatar-online"><img
-                                        src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
-                                        alt="avatar"><i></i></div><span
-                                    class="user-name">{{ Auth::guard('admin')->user()->name }}</span>
+                                <div class="avatar avatar-online">
+                                    @if (!empty(Auth::guard('admin')->user()->image))
+                                        <img src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
+                                            alt="avatar"><i></i>
+                                    @else
+                                        <img src="{{ asset('admin/images/admin_images/no_image.jpg') }}"
+                                            alt="avatar"><i></i>
+                                    @endif
+                                </div><span class="user-name">{{ Auth::guard('admin')->user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ url('admin/update_admin_details') }}"><i
