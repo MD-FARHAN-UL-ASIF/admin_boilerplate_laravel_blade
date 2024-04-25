@@ -269,7 +269,7 @@
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#"
                                 data-toggle="dropdown">
                                 <div class="avatar avatar-online"><img
-                                        src="{{ asset('admin/images/portrait/small/avatar-s-1.png') }}"
+                                        src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
                                         alt="avatar"><i></i></div><span
                                     class="user-name">{{ Auth::guard('admin')->user()->name }}</span>
                             </a>

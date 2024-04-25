@@ -38,7 +38,7 @@
                             </div>
                         @endif
                         <form class="form form-horizontal striped-rows" method="POST"
-                            action="{{ url('admin/update_admin_details') }}">
+                            action="{{ url('admin/update_admin_details') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-9">
                                 <div class="card">
@@ -49,7 +49,7 @@
                                                     aria-labelledby="account-pill-general" aria-expanded="true">
                                                     <div class="media">
                                                         <a href="javascript: void(0);">
-                                                            <img src="{{ asset('admin/images/portrait/small/avatar-s-18.png') }}"
+                                                            <img src="{{ asset('admin/images/admin_images/' . Auth::guard('admin')->user()->image) }}"
                                                                 class="rounded mr-75" alt="profile image" height="64"
                                                                 width="64">
                                                         </a>
@@ -58,8 +58,9 @@
                                                                 class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
                                                                 <label
                                                                     class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
-                                                                    for="account-upload">Upload new photo</label>
-                                                                <input type="file" id="account-upload" hidden>
+                                                                    for="admin_image">Upload new photo</label>
+                                                                <input type="file" id="admin_image" name="admin_image"
+                                                                    accept="image/*" hidden>
                                                                 <button
                                                                     class="btn btn-sm btn-secondary ml-50">Reset</button>
                                                             </div>
@@ -86,7 +87,8 @@
                                                                     <div class="controls">
                                                                         <label for="type">Role</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="type"value="{{ Auth::guard('admin')->user()->type }}"
+                                                                            id="type"
+                                                                            value="{{ Auth::guard('admin')->user()->type }}"
                                                                             readonly>
                                                                     </div>
                                                                 </div>
