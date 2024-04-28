@@ -183,7 +183,110 @@ public function checkCurrentPassword(Request $request)
     }
 
     public function subadmins(){
+        Session::put('page', 'subadmins');
         $subadmins = Admin::where('type', 'subadmin')->get();
-        return view('admin.subadmins.subadmins')->with(compact('subadmins'));
+        return view('admin.subadmin.subadmin')->with(compact('subadmins'));
+    }
+
+    public function updateSubadminStatus(Request $request)
+    {
+     if($request->ajax()){
+        $data = $request->all();
+        // echo "<pre>"; print_r($data); die;
+
+        if($data['status'] == "Active"){
+            $status = 0;
+        }else{
+            $status =1;
+        }
+        Admin::where('id', $data['subadmin_id'])->update(['status' =>$status]);
+        return response()->json(['status' => $status, 'subadmin_id' => $data['subadmin_id']]);
+     }
+    }
+
+   public function addEditSubadmin(Request $request, $id=null){
+    if($id==""){
+        $title = "Add Subadmin";
+        $subadmindata = new Admin;
+        $message = "Subadmin added successfully";
+    } else {
+        $title = "Edit Subadmin";
+        $subadmindata = Admin::findOrFail($id);
+        $message = "Subadmin updated successfully";
+    }
+
+    if($request->isMethod('post')){
+        $data = $request->all();
+
+        $rules = [
+            'name' => 'required|max:255',
+            'mobile' => ['required', 'regex:/^\+880[0-9]{10}$/'],
+            'image' => 'image'
+        ];
+
+        $customMessage = [
+            'name.required' => "Name is required",
+            'mobile.required' => 'Mobile number is required',
+            'mobile.numeric' => 'Mobile must be numeric',
+            'mobile.regex' => "The admin mobile must start with +880 followed by exactly 10 numeric digits.",
+            'image.image' => "Valid image required",
+        ];
+
+        $validator = Validator::make($data, $rules, $customMessage);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Check if image was uploaded
+        if ($request->hasFile('image')) {
+            $image_tmp = $request->file('image');
+            if ($image_tmp->isValid()) {
+                // Get image extension
+                $extension = $image_tmp->getClientOriginalExtension();
+                // Generate new image name
+                $image_name = rand(111, 99999) . '.' . $extension;
+                $image_path = 'admin/images/admin_images/' . $image_name;
+                // Save image
+                Image::make($image_tmp)->save($image_path);
+                // Assign image name to data
+                $subadmindata->image = $image_name;
+            }
+        } else {
+            // If no new image is uploaded, keep the existing image
+    if (!empty($subadmindata->image)) {
+        $subadmindata->image = $subadmindata->image;
+    } else {
+        $subadmindata->image = 'no_image.jpg';
+    }
+        }
+
+        // Assign other form data
+        $subadmindata->name = $data['name'];
+        $subadmindata->mobile = $data['mobile'];
+        if($id == "") {
+            $subadmindata->email = $data['email'];
+            $subadmindata->type = 'subadmin';
+            $subadmindata->status = 1;
+            // Hash password if provided
+            if (!empty($data['password'])) {
+                $subadmindata->password = bcrypt($data['password']);
+            }
+        }
+        // Save the data
+        $subadmindata->save();
+
+        return redirect('admin/subadmins')->with('success_message', $message);
+    }
+
+    return view('admin.subadmin.add_edit_subadmin')->with(compact('title', 'subadmindata'));
+}
+
+
+
+        public function deleteSubadmin($id)
+    {
+        Admin::where('id', $id)->delete();
+        return redirect()->back()->with('success_message', 'Subadmin deleted...!');
     }
 }
