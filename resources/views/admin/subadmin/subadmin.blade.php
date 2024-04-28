@@ -78,6 +78,8 @@
                                                         <a href="{{ url('admin/add-edit-subadmin/'.$subadmin->id) }}"><i class="fa fa-edit"></i></a>
                                                     &nbsp;&nbsp;
                                                         <a href="{{ url('admin/delete-subadmin/'.$subadmin->id) }}"><i class="fa fa-trash"></i></a>
+                                                        &nbsp;&nbsp;
+                                                        <a href="{{ url('admin/update-permission/'.$subadmin->id) }}"><i class="fa fa-lock"></i></a>
                                                 </td>
                                                 {{-- <td><!-- Add actions here if needed --></td> --}}
                                             </tr>

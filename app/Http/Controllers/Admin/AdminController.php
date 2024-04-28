@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\AdminsPermission;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cookie;
@@ -289,4 +290,42 @@ public function checkCurrentPassword(Request $request)
         Admin::where('id', $id)->delete();
         return redirect()->back()->with('success_message', 'Subadmin deleted...!');
     }
+
+
+    public function updatePermission($id, Request $request)
+{
+
+    if ($request->isMethod('post')) {
+        $data = $request->all();
+        
+        // Delete earlier permissions
+        AdminsPermission::where('admin_id', $id)->delete();
+
+        // Add new permission
+        foreach ($data as $module => $permissions) {
+            if ($module!= '_token' && $module!= 'admin_id') {
+                $view = isset($permissions['view'])? 1 : 0;
+                $edit = isset($permissions['edit'])? 1 : 0;
+                $full = isset($permissions['full'])? 1 : 0;
+
+                $permission = new AdminsPermission;
+                $permission->admin_id = $id;
+                $permission->module = $module;
+                $permission->view_access = $view;
+                $permission->edit_access = $edit;
+                $permission->full_access = $full;
+                $permission->save();
+            }
+        }
+
+        $message = "Sub Admin Permission Updated Successfully....!";
+        return redirect()->back()->with('success_message', $message);
+    }
+
+    $subadminPermission = AdminsPermission::where('admin_id', $id)->get();
+$subadminDetails = Admin::where('id', $id)->first()->toArray();
+    $title = "Update Subadmin Permission for ".$subadminDetails['name'];
+
+    return view('admin.subadmin.update_permission', compact('title', 'id', 'subadminPermission'));
+}
 }

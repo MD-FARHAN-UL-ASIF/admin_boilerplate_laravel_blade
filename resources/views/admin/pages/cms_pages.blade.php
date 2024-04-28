@@ -62,6 +62,7 @@
                                                 <td>{{ $page['url'] }}</td>
                                                 <td>{{ date("F j, Y, g:i a", strtotime($page['created_at'])); }}</td>
                                                 <td>
+                                                    @if($pagesModule['edit_access']==1 || $pagesModule['full_access']==1)
                                                     @if($page['status']==1)
                                                     <a class="updateCmsPageStatus" id="page-{{ $page['id'] }}" page_id = "{{ $page['id'] }}" href="javascript:void(0)">
                                                         <i class="fa fa-toggle-on" status = "Active"></i></a>
@@ -69,11 +70,15 @@
                                                         <a class="updateCmsPageStatus" id="page-{{ $page['id'] }}" page_id = "{{ $page['id'] }}" href="javascript:void(0)">
                                                         <i class="fa fa-toggle-off" status = "Inactive"></i></a>
                                                     @endif
-
                                                     &nbsp;&nbsp;
+                                                    @endif
+                                                    @if($pagesModule['edit_access']==1 || $pagesModule['full_access']==1)
                                                         <a href="{{ url('admin/add-edit-cms-page/'.$page['id']) }}"><i class="fa fa-edit"></i></a>
                                                     &nbsp;&nbsp;
+                                                     @endif
+                                                 @if($pagesModule['full_access']==1)
                                                         <a href="{{ url('admin/delete-cms-page/'.$page['id']) }}"><i class="fa fa-trash"></i></a>
+                                                        @endif
                                                 </td>
                                                 {{-- <td><!-- Add actions here if needed --></td> --}}
                                             </tr>

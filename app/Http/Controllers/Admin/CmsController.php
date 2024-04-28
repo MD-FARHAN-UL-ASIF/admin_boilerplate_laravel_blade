@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CmsPage;
+use App\Models\AdminsPermission;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Session;
@@ -19,7 +21,21 @@ public function index()
     Session::put('page', 'cms-page');
     $CmsPages = CmsPage::get()->toArray();
     // dd($CmsPages);
-    return view('admin.pages.cms_pages')->with(compact('CmsPages'));
+
+    //set Admin/Sub admin Permission for CMS Pages
+    $cmspagesModuleCount = AdminsPermission::where(['admin_id'=>Auth::guard('admin')->user()->id,'module' => 'cms_pages'])->count();
+    $pagesModule = array();
+    if(Auth::guard('admin')->user()->type == "admin"){
+        $pagesModule['view_access'] = 1;
+        $pagesModule['edit_access'] = 1;
+        $pagesModule['full_access'] = 1;
+    }else if($cmspagesModuleCount == 0){
+        $message= "This feature is restricted for you...!";
+        return redirect('admin/dashboard')->with('error_message', $message);
+    }else{
+        $pagesModule = AdminsPermission::where(['admin_id' => Auth::guard('admin')->user()->id, 'module' => 'cms_pages'])->first()->toArray();
+    }
+    return view('admin.pages.cms_pages')->with(compact('CmsPages', 'pagesModule'));
 }
 
 

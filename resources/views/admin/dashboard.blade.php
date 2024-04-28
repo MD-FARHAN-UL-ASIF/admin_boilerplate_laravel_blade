@@ -1,5 +1,13 @@
 @extends('admin.layout.layout')
 @section('content')
+@if (Session::has('error_message'))
+                                    <div class="alert bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <strong>Oh snap! </strong>{{ Session::get('error_message') }}
+                                    </div>
+                                    @endif
    <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="content-wrapper">
