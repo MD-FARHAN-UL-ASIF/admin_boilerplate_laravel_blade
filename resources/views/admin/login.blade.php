@@ -12,7 +12,9 @@
     <title>Login</title>
     <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/favicon.ico') }}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/vendors.min.css') }}">
@@ -34,7 +36,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{  url('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
 
 </head>
@@ -42,7 +44,8 @@
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern 1-column  bg-full-screen-image menu-collapsed blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+<body class="vertical-layout vertical-menu-modern 1-column  bg-full-screen-image menu-collapsed blank-page blank-page"
+    data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -56,50 +59,69 @@
                             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                                 <div class="card-header border-0">
                                     <div class="card-title text-center">
-                                        <img src="{{ asset('admin/images/logo/stack-logo-dark.png') }}" alt="branding logo">
+                                        <img src="{{ asset('admin/images/logo/stack-logo-dark.png') }}"
+                                            alt="branding logo">
                                     </div>
-                                    <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2"><span>Easily
-                                            Using</span></h6>
+                                    <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
+                                        <span>Easily
+                                            Using</span>
+                                    </h6>
                                 </div>
                                 <div class="card-content">
                                     <div class="text-center">
-                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="fa fa-twitter"></span></a>
-                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-linkedin"><span class="fa fa-linkedin font-medium-4"></span></a>
-                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-github"><span class="fa fa-github font-medium-4"></span></a>
+                                        <a href="#"
+                                            class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span
+                                                class="fa fa-facebook"></span></a>
+                                        <a href="#"
+                                            class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span
+                                                class="fa fa-twitter"></span></a>
+                                        <a href="#"
+                                            class="btn btn-social-icon mr-1 mb-1 btn-outline-linkedin"><span
+                                                class="fa fa-linkedin font-medium-4"></span></a>
+                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-github"><span
+                                                class="fa fa-github font-medium-4"></span></a>
                                     </div>
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>OR Using
-                                            Account Details</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                                        <span>OR Using
+                                            Account Details</span>
+                                    </p>
                                     <div class="card-body">
 
-                                            @if ($errors->any())
-                                                <div class="alert alert-danger">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
 
-                                            @if (Session::has('error_message'))
-                                            <div class="alert bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        @if (Session::has('error_message'))
+                                            <div class="alert bg-danger alert-icon-left alert-dismissible mb-2"
+                                                role="alert">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
-                                                <strong>Oh snap!</strong> Check your <a href="#" class="alert-link">credentials</a> and submit again.
+                                                <strong>Oh snap!</strong> Check your <a href="#"
+                                                    class="alert-link">credentials</a> and submit again.
                                             </div>
-                                            @endif
+                                        @endif
 
-                                        <form class="form-horizontal" action="{{ url('admin/login') }}" method="POST" novalidate>@csrf
+                                        <form class="form-horizontal" action="{{ url('admin/login') }}"
+                                            method="POST" novalidate>@csrf
                                             <fieldset class="form-group position-relative has-icon-left">
-                                                <input type="email" name="email" class="form-control" id="email" placeholder="Your email" required>
+                                                <input type="email" name="email" class="form-control"
+                                                    id="email" placeholder="Your email" required value="{{ old('email') }}">
                                                 <div class="form-control-position">
                                                     <i class="feather icon-mail"></i>
                                                 </div>
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left">
-                                                <input type="password" name="password" class="form-control" id="user-password" placeholder="Enter Password" required>
+                                                <input type="password" name="password" class="form-control"
+                                                    id="user-password" placeholder="Enter Password" 
+                                                    required>
                                                 <div class="form-control-position">
                                                     <i class="fa fa-key"></i>
                                                 </div>
@@ -107,19 +129,28 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-6 col-12 text-center text-sm-left pr-0">
                                                     <fieldset>
-                                                        <input type="checkbox" id="remember-me" class="chk-remember">
+                                                        <input type="checkbox" id="remember-me"
+                                                            class="chk-remember"name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                         <label for="remember-me"> Remember Me</label>
                                                     </fieldset>
                                                 </div>
-                                                <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                                                <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a
+                                                        href="recover-password.html" class="card-link">Forgot
+                                                        Password?</a></div>
                                             </div>
-                                            <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-unlock"></i> Login</button>
+                                            <button type="submit" class="btn btn-outline-primary btn-block"><i
+                                                    class="feather icon-unlock"></i> Login</button>
                                         </form>
                                     </div>
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>New to
-                                            Stack ?</span></p>
+                                    <p
+                                        class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                                        <span>New to
+                                            Stack ?</span>
+                                    </p>
                                     <div class="card-body">
-                                        <a href="register-with-bg-image.html" class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i> Register</a>
+                                        <a href="register-with-bg-image.html"
+                                            class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
+                                            Register</a>
                                     </div>
                                 </div>
                             </div>

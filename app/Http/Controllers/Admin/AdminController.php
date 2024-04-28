@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cookie;
+
 use Session;
 
 class AdminController extends Controller
@@ -19,32 +21,34 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function login(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $data = $request->all();
+public function login(Request $request)
+{
+    if ($request->isMethod('post')) {
+        $data = $request->all();
 
-            $rules = [
-                'email' => 'required|email|max:255',
-                'password' => 'required|max:30|min:6',
-            ];
+        $rules = [
+            'email' => 'required|email|max:255',
+            'password' => 'required|max:30|min:6',
+        ];
 
-            $customMessage = [
-                'email.required' => "Email is required",
-                'email.email' => "Valid email is required",
-                'password.required' => 'Password is required'
-            ];
+        $customMessage = [
+            'email.required' => "Email is required",
+            'email.email' => "Valid email is required",
+            'password.required' => 'Password is required'
+        ];
 
-            $request->validate($rules, $customMessage);
+        $request->validate($rules, $customMessage);
 
-            if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
-                return redirect("admin/dashboard");
-            } else {
-                return redirect()->back()->with("error_message", "Invalid Email or Password");
-            }
+        $remember = $request->filled('remember_me');
+
+        if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']], $remember)) {
+            return redirect("admin/dashboard");
+        } else {
+            return redirect()->back()->with("error_message", "Invalid Email or Password");
         }
-        return view('admin.login');
     }
+    return view('admin.login');
+}
 
 public function updatePassword(Request $request)
 {
@@ -172,5 +176,14 @@ public function checkCurrentPassword(Request $request)
         Auth::guard('admin')->logout();
         return redirect('admin/logout');
 
+        // Clear remember me cookies
+    Cookie::queue(Cookie::forget('email'));
+    Cookie::queue(Cookie::forget('password'));
+
+    }
+
+    public function subadmins(){
+        $subadmins = Admin::where('type', 'subadmin')->get();
+        return view('admin.subadmins.subadmins')->with(compact('subadmins'));
     }
 }

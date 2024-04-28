@@ -36,6 +36,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url('admin/fonts/simple-line-icons/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/pages/card-statistics.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/pages/vertical-timeline.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/tables/datatable/datatables.min.css') }}">
+
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -86,6 +88,19 @@
     <!-- BEGIN: update Admin details-->
     <script src="{{ url('admin/js/scripts/pages/account-setting.js') }}"></script>
     <!-- END: update Admin details-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{{ url('admin/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/buttons.flash.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/jszip.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/pdfmake.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/vfs_fonts.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/buttons.html5.min.js') }}"></script>
+    <script src="{{ url('admin/vendors/js/tables/buttons.print.min.js') }}"></script>
+    <!-- END: Page Vendor JS-->
+       <!-- BEGIN: Page JS-->
+    <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.js') }}"></script>
+    <!-- END: Page JS-->
 
 </body>
 <!-- END: Body-->

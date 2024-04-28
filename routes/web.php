@@ -14,5 +14,14 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::match(['get', 'post'],'update_password', 'AdminController@updatePassword');
         Route::match(['get', 'post'],'update_admin_details', 'AdminController@updateAdminDetails');
         Route::get('logout', 'AdminController@logout');
+
+        //CMS PAGE
+        Route::get('cms-page', 'CmsController@index');
+        Route::post('update-cms-page-status', 'CmsController@update');
+        Route::match(['get','post'], 'add-edit-cms-page/{id?}', 'CmsController@edit');
+        Route::get('delete-cms-page/{id?}', 'CmsController@destroy');
+
+        //subadmin
+        Route::get('subadmins', 'AdminController@subadmins');
     });
 });
