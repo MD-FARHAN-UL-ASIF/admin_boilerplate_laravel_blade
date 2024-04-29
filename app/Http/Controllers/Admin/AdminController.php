@@ -283,8 +283,6 @@ public function checkCurrentPassword(Request $request)
     return view('admin.subadmin.add_edit_subadmin')->with(compact('title', 'subadmindata'));
 }
 
-
-
         public function deleteSubadmin($id)
     {
         Admin::where('id', $id)->delete();

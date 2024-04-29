@@ -96,7 +96,7 @@ html body.boxed-layout {
 }
 
 html body.bg-full-screen-image {
-  background: url(../../admin/images/backgrounds/bg-2.jpg) no-repeat center center fixed;
+  background: url(../../admin/images/backgrounds/bg-fx.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 

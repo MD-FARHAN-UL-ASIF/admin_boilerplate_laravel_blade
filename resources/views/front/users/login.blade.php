@@ -62,7 +62,7 @@
                                         <img src="{{ asset('admin/images/logo/stack-logo-dark.png') }}"
                                             alt="branding logo">
                                     </div>
-                                    
+                                   
                                 </div>
                                 <div class="card-content">
                                     <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
@@ -81,19 +81,24 @@
                                             </div>
                                         @endif
 
-                                        @if (Session::has('error_message'))
-                                            <div class="alert bg-danger alert-icon-left alert-dismissible mb-2"
-                                                role="alert">
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <strong>Oh snap!</strong> Check your <a href="#"
-                                                    class="alert-link">credentials</a> and submit again.
-                                            </div>
-                                        @endif
+                                         @if (Session::has('error_message'))
+                            <div class="alert bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Oh snap! </strong>{{ Session::get('error_message') }}
+                            </div>
+                        @endif
+                        @if (Session::has('success_message'))
+                            <div class="alert bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Well done!</strong> {{ Session::get('success_message') }}
+                            </div>
+                        @endif
 
-                                        <form class="form-horizontal" action="{{ url('admin/login') }}"
+                                        <form class="form-horizontal" action="{{ url('user/login') }}"
                                             method="POST" novalidate>@csrf
                                             <fieldset class="form-group position-relative has-icon-left">
                                                 <input type="email" name="email" class="form-control"
@@ -104,20 +109,14 @@
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left">
                                                 <input type="password" name="password" class="form-control"
-                                                    id="user-password" placeholder="Enter Password" 
+                                                    id="password" placeholder="Enter Password" 
                                                     required>
                                                 <div class="form-control-position">
                                                     <i class="fa fa-key"></i>
                                                 </div>
                                             </fieldset>
                                             <div class="form-group row">
-                                                <div class="col-sm-6 col-12 text-center text-sm-left pr-0">
-                                                    <fieldset>
-                                                        <input type="checkbox" id="remember-me"
-                                                            class="chk-remember"name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                        <label for="remember-me"> Remember Me</label>
-                                                    </fieldset>
-                                                </div>
+                                               
                                                 <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a
                                                         href="recover-password.html" class="card-link">Forgot
                                                         Password?</a></div>
@@ -125,6 +124,16 @@
                                             <button type="submit" class="btn btn-outline-primary btn-block"><i
                                                     class="feather icon-unlock"></i> Login</button>
                                         </form>
+                                    </div>
+                                    <p
+                                        class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                                        <span>New to
+                                            Stack ?</span>
+                                    </p>
+                                    <div class="card-body">
+                                        <a href="{{ url('user/register') }}"
+                                            class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
+                                            Register</a>
                                     </div>
                                 </div>
                             </div>

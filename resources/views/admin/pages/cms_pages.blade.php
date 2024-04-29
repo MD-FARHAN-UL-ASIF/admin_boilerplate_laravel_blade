@@ -32,7 +32,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
+                               @if($pagesModule['edit_access']==1 || $pagesModule['full_access']==1)
                                 <a href="{{ url('admin/add-edit-cms-page') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add CMS Page</button></a>
+                                 @endif
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>

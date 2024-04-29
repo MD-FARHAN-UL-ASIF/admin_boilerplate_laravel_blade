@@ -21,13 +21,15 @@
                             class="feather icon-home"></i><span class="menu-title"
                             data-i18n="CmsPage">CMS PAGE</span><span </li>
 
-                @php
-                    $active = Session::get('page') == 'subadmins' ? 'active' : '';
-                @endphp
+                                @if(Auth::guard('admin')->user()->type=="admin")
+                                @php
+                                $active = Session::get('page') == 'subadmins' ? 'active' : '';
+                                @endphp
 
-                <li class=" nav-item {{ $active }}"><a href="{{ url('admin/subadmins') }}"><i
-                            class="feather icon-users"></i><span class="menu-title"
-                            data-i18n="SubAdmins">Sub-Admins</span><span </li>
+                                <li class=" nav-item {{ $active }}"><a href="{{ url('admin/subadmins') }}"><i
+                                        class="feather icon-users"></i><span class="menu-title"
+                                        data-i18n="SubAdmins">Sub-Admins</span><span </li>
+                                @endif
                 <li class=" nav-item"><a href="#"><i class="feather icon-monitor"></i><span class="menu-title"
                             data-i18n="Templates">Templates</span></a>
                     <ul class="menu-content">
