@@ -100,6 +100,8 @@
     <!-- END: Page Vendor JS-->
        <!-- BEGIN: Page JS-->
     <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.js') }}"></script>
+        {{-- <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.min.js') }}"></script> --}}
+
     <!-- END: Page JS-->
 
 </body>

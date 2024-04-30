@@ -26,11 +26,13 @@
                                 <li class="col-md-5 px-2">
                                     <h6 class="font-weight-bold font-medium-2 ml-1">Apps</h6>
                                     <ul class="row mt-2">
-                                        <li class="col-6 col-xl-4"><a class="text-center mb-2 mb-xl-3"
-                                                href="app-email.html" target="_blank"><i
-                                                    class="feather icon-mail font-large-1 mr-0"></i>
-                                                <p class="font-medium-2 mt-25 mb-0">Email</p>
-                                            </a></li>
+                                       <li class="col-6 col-xl-4">
+                                    <a class="text-center mb-2 mb-xl-3" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=&body=" target="_blank">
+                                        <i class="feather icon-mail font-large-1 mr-0"></i>
+                                        <p class="font-medium-2 mt-25 mb-0">Email</p>
+                                    </a>
+                                </li>
+
                                         <li class="col-6 col-xl-4"><a class="text-center mb-2 mb-xl-3"
                                                 href="app-chat.html" target="_blank"><i
                                                     class="feather icon-message-square font-large-1 mr-0"></i>

@@ -21,6 +21,11 @@
             Route::match(['get','post'], 'add-edit-cms-page/{id?}', 'CmsController@edit');
             Route::get('delete-cms-page/{id?}', 'CmsController@destroy');
 
+            //User
+            Route::get('users', 'AdminController@Users');
+            Route::match(['get','post'], 'add-edit-user/{user_id?}', 'AdminController@addEditUser');
+
+
                     //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
                 Route::get('subadmins', 'AdminController@subadmins');
@@ -33,6 +38,7 @@
         });
     });
 
+    //front
     Route::prefix('/user')->namespace('App\Http\Controllers\Front')->group(function(){
         Route::match(['get', 'post'], 'login', 'UserController@loginUser')->name('user.login');
     Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');

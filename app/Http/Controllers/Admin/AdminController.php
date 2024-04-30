@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\AdminsPermission;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cookie;
@@ -206,6 +207,8 @@ public function checkCurrentPassword(Request $request)
     }
 
    public function addEditSubadmin(Request $request, $id=null){
+                    Session::put('page', 'add_subadmin');
+
     if($id==""){
         $title = "Add Subadmin";
         $subadmindata = new Admin;
@@ -291,39 +294,141 @@ public function checkCurrentPassword(Request $request)
 
 
     public function updatePermission($id, Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            
+            // Delete earlier permissions
+            AdminsPermission::where('admin_id', $id)->delete();
+
+            // Add new permission
+            foreach ($data as $module => $permissions) {
+                if ($module!= '_token' && $module!= 'admin_id') {
+                    $view = isset($permissions['view'])? 1 : 0;
+                    $edit = isset($permissions['edit'])? 1 : 0;
+                    $full = isset($permissions['full'])? 1 : 0;
+
+                    $permission = new AdminsPermission;
+                    $permission->admin_id = $id;
+                    $permission->module = $module;
+                    $permission->view_access = $view;
+                    $permission->edit_access = $edit;
+                    $permission->full_access = $full;
+                    $permission->save();
+                }
+            }
+            $message = "Sub Admin Permission Updated Successfully....!";
+            return redirect()->back()->with('success_message', $message);
+        }
+        $subadminPermission = AdminsPermission::where('admin_id', $id)->get();
+        $subadminDetails = Admin::where('id', $id)->first()->toArray();
+        $title = "Update Subadmin Permission for ".$subadminDetails['name'];
+
+        return view('admin.subadmin.update_permission', compact('title', 'id', 'subadminPermission'));
+    }
+
+
+    //user part for admin
+        public function Users()
+    {
+        Session::put('page', 'users');
+        $users = User::all();
+
+        return view('admin.user.user')->with(compact('users'));
+    }
+
+public function addEditUser(Request $request, $user_id = null)
 {
+    Session::put('page', 'add_users');
+
+    if ($user_id === null) {
+        $title = "Add User";
+        $userdata = new User;
+        $message = "User added successfully";
+    } else {
+        $title = "Edit User";
+        $userdata = User::findOrFail($user_id);
+        $message = "User updated successfully";
+    }
 
     if ($request->isMethod('post')) {
         $data = $request->all();
-        
-        // Delete earlier permissions
-        AdminsPermission::where('admin_id', $id)->delete();
 
-        // Add new permission
-        foreach ($data as $module => $permissions) {
-            if ($module!= '_token' && $module!= 'admin_id') {
-                $view = isset($permissions['view'])? 1 : 0;
-                $edit = isset($permissions['edit'])? 1 : 0;
-                $full = isset($permissions['full'])? 1 : 0;
+        $rules = [
+            'name' => 'required|max:255',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required',
+            'mobile' => ['required', 'regex:/^\+880[0-9]{10}$/'],
+            'image' => 'image'
+        ];
 
-                $permission = new AdminsPermission;
-                $permission->admin_id = $id;
-                $permission->module = $module;
-                $permission->view_access = $view;
-                $permission->edit_access = $edit;
-                $permission->full_access = $full;
-                $permission->save();
+        $customMessage = [
+            'name.required' => "Name is required",
+            'address.required' => "Address is required",
+            'city.required' => "City is required",
+            'state.required' => "State is required",
+            'country.required' => "Country is required",
+            'zipcode.required' => "Postal code is required",
+            'mobile.required' => 'Mobile number is required',
+            'mobile.regex' => "The mobile number must start with +880 followed by exactly 10 numeric digits.",
+            'email.required' => "E-mail is required",
+            'email.email' => "Invalid E-mail Format",
+            'email.unique' => "User with this email already exists",
+            'image.image' => "Valid image required",
+        ];
+
+        // Include email validation only when adding a new user
+        if ($user_id === null) {
+            $rules['email'] = 'required|email|unique:users,email';
+        }
+
+        $validator = Validator::make($data, $rules, $customMessage);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Check if image was uploaded
+        if ($request->hasFile('image')) {
+            $image_tmp = $request->file('image');
+            if ($image_tmp->isValid()) {
+                // Get image extension
+                $extension = $image_tmp->getClientOriginalExtension();
+                // Generate new image name
+                $image_name = rand(111, 99999) . '.' . $extension;
+                $image_path = 'admin/images/user_images/' . $image_name;
+                // Save image
+                Image::make($image_tmp)->save($image_path);
+                // Assign image name to data
+                $userdata->image = $image_name;
             }
         }
 
-        $message = "Sub Admin Permission Updated Successfully....!";
-        return redirect()->back()->with('success_message', $message);
+        // Assign other form data
+        $userdata->name = $data['name'];
+        $userdata->address = $data['address'];
+        $userdata->city = $data['city'];
+        $userdata->state = $data['state'];
+        $userdata->country = $data['country'];
+        $userdata->zipcode = $data['zipcode'];
+        $userdata->mobile = $data['mobile'];
+        $userdata->status = 1; // Assigning the default value of 1 for status
+
+        // Hash password if provided during adding user
+        if ($user_id === null && !empty($data['password'])) {
+            $userdata->password = bcrypt($data['password']);
+        }
+
+        // Save the data
+        $userdata->save();
+
+        return redirect('admin/users')->with('success_message', $message);
     }
 
-    $subadminPermission = AdminsPermission::where('admin_id', $id)->get();
-$subadminDetails = Admin::where('id', $id)->first()->toArray();
-    $title = "Update Subadmin Permission for ".$subadminDetails['name'];
-
-    return view('admin.subadmin.update_permission', compact('title', 'id', 'subadminPermission'));
+    return view('admin.user.add_edit_user')->with(compact('title', 'userdata'));
 }
+
 }

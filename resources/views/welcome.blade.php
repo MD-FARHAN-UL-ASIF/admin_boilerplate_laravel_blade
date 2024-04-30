@@ -34,7 +34,7 @@
                         <div class="card-content">
                                 <div class="row py-2 justify-content-center">
                                     <div class="col-12 col-sm-6 mb-1 text-center">
-                                        <a href="{{ url('front/login') }}" class="btn btn-primary btn-block"> <i class="feather icon-home mr-1"></i> User Login</a>
+                                        <a href="{{ url('user/login') }}" class="btn btn-primary btn-block"> <i class="feather icon-home mr-1"></i> User Login</a>
                                     </div>
                                 </div>
                             </div>
