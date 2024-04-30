@@ -447,4 +447,12 @@ public function addEditUser(Request $request, $user_id = null)
         return response()->json(['status' => $status, 'user_id' => $data['user_id']]);
      }
     }
+
+
+    public function deleteUser($user_id)
+        {
+            User::where('id', $user_id)->delete();
+            return redirect()->back()->with('success_message', 'User deleted...!');
+        }
+
 }

@@ -25,6 +25,7 @@
             Route::get('users', 'AdminController@Users');
             Route::match(['get','post'], 'add-edit-user/{user_id?}', 'AdminController@addEditUser');
             Route::post('update-user-status', 'AdminController@updateUserStatus');
+            Route::get('delete-user/{user_id?}', 'AdminController@deleteUser');
 
 
 
