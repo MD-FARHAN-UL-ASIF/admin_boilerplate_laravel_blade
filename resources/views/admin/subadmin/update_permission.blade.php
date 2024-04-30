@@ -71,6 +71,7 @@
                                                 // Define a list of permissions
                                                 $permissions = [
                                                     ['module' => 'cms_pages', 'label' => 'CMS Pages'],
+                                                    ['module' => 'users', 'label' => 'Users']
                                                     // Add more permissions as needed
                                                 ];
                                             @endphp

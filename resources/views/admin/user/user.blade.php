@@ -32,7 +32,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
+                            @if($usersModule['edit_access']==1 || $usersModule['full_access']==1)
                                 <a href="{{ url('admin/add-edit-user') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add User</button></a>
+                            @endif
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -84,6 +86,7 @@
                                                 </td>
                                                 <td>{{ date("F j, Y, g:i a", strtotime($user->created_at)) }}</td>
                                                 <td>
+                                        @if($usersModule['edit_access']==1 || $usersModule['full_access']==1)
                                                     @if($user -> status==1)
                                                     <a class="updateUserStatus" id="user-{{ $user->id }}" user_id = "{{ $user->id }}" href="javascript:void(0)">
                                                         <i class="fa fa-toggle-on" status = "Active"></i></a>
@@ -93,9 +96,13 @@
                                                     @endif
 
                                                     &nbsp;&nbsp;
+
                                                         <a href="{{ url('admin/add-edit-user/'.$user->id) }}"><i class="fa fa-edit"></i></a>
                                                     &nbsp;&nbsp;
+                                            @endif
+                                    @if($usersModule['full_access']==1)
                                                         <a href="{{ url('admin/delete-user/'.$user->id) }}"><i class="fa fa-trash"></i></a>
+                                            @endif                                    
                                                         {{-- &nbsp;&nbsp;
                                                         <a href="{{ url('admin/update-permission/'.$subadmin->id) }}"><i class="fa fa-lock"></i></a>  --}}
                                                 </td> 

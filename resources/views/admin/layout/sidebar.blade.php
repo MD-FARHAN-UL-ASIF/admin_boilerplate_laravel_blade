@@ -51,19 +51,21 @@
                 @endphp
                 <li class=" nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title"
                             data-i18n="Users">Users</span></a>
-                    <ul class="menu-content">
+                <ul class="menu-content">
                         @php
                                 $active = Session::get('page') == 'users' ? 'active' : '';
                         @endphp
                         <li class="{{ $active }}">
                         <a class="menu-item" href="{{ url("admin/users") }}" data-i18n="Vertical">Manage Users</a>
                         </li>
-
+                        
                         @php
                                 $active = Session::get('page') == 'add_users' ? 'active' : '';
-                        @endphp
+                                @endphp
                         <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url('admin/add-edit-user') }}" data-i18n="Vertical">Add User</a>
+                                @if(isset($usersModule) && ($usersModule['edit_access']==1 || $usersModule['full_access']==1))
+                                <a class="menu-item" href="{{ url('admin/add-edit-user') }}" data-i18n="Vertical">Add User</a>
+                                @endif
                         </li>
                 </ul>
                 </li>
