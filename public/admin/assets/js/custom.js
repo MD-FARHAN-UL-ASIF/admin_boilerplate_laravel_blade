@@ -95,4 +95,28 @@ $(document).ready(function () {
             }
         })
     });
+
+    //Update User Status
+    $(document).on("click", ".updateUserStatus", function () {
+        var status = $(this).children("i").attr("status");
+        var user_id = $(this).attr("user_id");
+        //    alert(page_id);
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'post',
+            url: '/admin/update-user-status',
+            data: { status: status, user_id: user_id },
+            success: function (resp) {
+                if (resp['status'] == 0) {
+                    $("#user-" + user_id).html("<i class= 'fa fa-toggle-off' status = 'Inactive'></i>")
+                } else if (resp['status'] == 1) {
+                    $("#user-" + user_id).html("<i class= 'fa fa-toggle-on' status = 'Active'></i>")
+                }
+            }, error: function () {
+                alert("Error");
+            }
+        })
+    });
 });

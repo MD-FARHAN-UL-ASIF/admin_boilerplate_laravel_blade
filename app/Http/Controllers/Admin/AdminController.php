@@ -173,8 +173,8 @@ public function checkCurrentPassword(Request $request)
 
 
 
-    public function logout(
-    ) {
+    public function logout()
+     {
         Auth::guard('admin')->logout();
         return redirect('admin/logout');
 
@@ -431,4 +431,20 @@ public function addEditUser(Request $request, $user_id = null)
     return view('admin.user.add_edit_user')->with(compact('title', 'userdata'));
 }
 
+
+   public function updateUserStatus(Request $request)
+    {
+     if($request->ajax()){
+        $data = $request->all();
+        // echo "<pre>"; print_r($data); die;
+
+        if($data['status'] == "Active"){
+            $status = 0;
+        }else{
+            $status =1;
+        }
+        User::where('id', $data['user_id'])->update(['status' =>$status]);
+        return response()->json(['status' => $status, 'user_id' => $data['user_id']]);
+     }
+    }
 }

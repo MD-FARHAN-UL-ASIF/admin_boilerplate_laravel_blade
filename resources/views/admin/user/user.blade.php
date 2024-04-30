@@ -59,7 +59,7 @@
                                                 <th>EMAIL</th>
                                                 <th>STATUS</th>
                                                 <th>CREATED AT</th>
-                                                {{-- <th>ACTIONS</th> --}}
+                                                <th>ACTIONS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,22 +83,22 @@
                                                     @endif
                                                 </td>
                                                 <td>{{ date("F j, Y, g:i a", strtotime($user->created_at)) }}</td>
-                                                {{-- <td>
-                                                    @if($subadmin -> status==1)
-                                                    <a class="updateSubadminStatus" id="subadmin-{{ $subadmin->id }}" subadmin_id = "{{ $subadmin->id }}" href="javascript:void(0)">
+                                                <td>
+                                                    @if($user -> status==1)
+                                                    <a class="updateUserStatus" id="user-{{ $user->id }}" user_id = "{{ $user->id }}" href="javascript:void(0)">
                                                         <i class="fa fa-toggle-on" status = "Active"></i></a>
                                                     @else
-                                                        <a class="updateSubadminStatus" id="subadmin-{{ $subadmin->id }}" subadmin_id = "{{ $subadmin->id }}" href="javascript:void(0)">
+                                                        <a class="updateUserStatus" id="user-{{ $user->id }}" user_id = "{{ $user->id }}" href="javascript:void(0)">
                                                         <i class="fa fa-toggle-off" status = "Inactive"></i></a>
                                                     @endif
 
                                                     &nbsp;&nbsp;
-                                                        <a href="{{ url('admin/add-edit-subadmin/'.$subadmin->id) }}"><i class="fa fa-edit"></i></a>
-                                                    &nbsp;&nbsp;
-                                                        <a href="{{ url('admin/delete-subadmin/'.$subadmin->id) }}"><i class="fa fa-trash"></i></a>
+                                                        <a href="{{ url('admin/add-edit-user/'.$user->id) }}"><i class="fa fa-edit"></i></a>
+                                                    {{-- &nbsp;&nbsp; --}}
+                                                        {{-- <a href="{{ url('admin/delete-subadmin/'.$subadmin->id) }}"><i class="fa fa-trash"></i></a>
                                                         &nbsp;&nbsp;
-                                                        <a href="{{ url('admin/update-permission/'.$subadmin->id) }}"><i class="fa fa-lock"></i></a>
-                                                </td> --}}
+                                                        <a href="{{ url('admin/update-permission/'.$subadmin->id) }}"><i class="fa fa-lock"></i></a> --}}
+                                                </td> 
                                                 {{-- <td><!-- Add actions here if needed --></td> --}}
                                             </tr>
                                             @endforeach
@@ -117,7 +117,7 @@
                                                 <th>EMAIL</th>
                                                 <th>STATUS</th>
                                                 <th>CREATED AT</th>
-                                                {{-- <th>ACTIONS</th> --}}
+                                                <th>ACTIONS</th>
                                             </tr>
                                         </tfoot>
                                     </table>
