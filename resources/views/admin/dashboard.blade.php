@@ -65,15 +65,15 @@
                                     <div class="col-lg-6 col-xl-3 col-sm-6 col-12">
                                         <div class="d-flex align-items-start">
                                             <span class="card-icon warning d-flex justify-content-center mr-3">
-                                                <i class="icon p-1 icon-basket-loaded customize-icon font-large-2 p-1"></i>
+            <i class="icon p-1 icon-user customize-icon font-large-2 p-1"></i>
                                             </span>
                                             <div class="stats-amount mr-3">
-                                                <h3 class="heading-text text-bold-600">13700</h3>
-                                                <p class="sub-heading">Orders</p>
+                                                <h3 class="heading-text text-bold-600">{{ $userCount }}</h3>
+                                                <p class="sub-heading">Users</p>
                                             </div>
-                                            <span class="inc-dec-percentage">
+                                            {{-- <span class="inc-dec-percentage">
                                                 <small class="danger"><i class="fa fa-long-arrow-down"></i> 13.6%</small>
-                                            </span>
+                                            </span> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -370,236 +370,54 @@
                 <!-- active users and my task timeline cards starts here -->
                 <div class="row match-height">
                     <!-- active users card -->
-                    <div class="col-xl-8 col-lg-12">
-                        <div class="card active-users">
-                            <div class="card-header border-0">
-                                <h4 class="card-title">Active Users</h4>
-                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div id="audience-list-scroll" class="table-responsive position-relative">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Available Data</th>
-                                                <th>Downloads</th>
-                                                <th>Status</th>
-                                                <th>More</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  url('admin/images/portrait/small/avatar-s-11.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Shwell Flintof</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>shwellFlint@gmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>450MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:55%">55%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-success">Active</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  url('admin/images/portrait/small/avatar-s-14.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Ogasawara Katsumi</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>ogaats@hmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>457 MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:55%">55%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-warning">Reported</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  url('admin/images/portrait/small/avatar-s-15.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Stepan Assonov</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>stepan23@hmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>231 MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:65%">65%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-danger">Block</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  url('admin/images/portrait/small/avatar-s-4.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Mbe Tshinguta</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>tshinguta@hmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>723 MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:78%">78%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-success">Active</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  url('admin/images/portrait/small/avatar-s-11.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Marco Alves</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>maralv@dmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>120 MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:51%">51%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-warning">Reported</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-truncate">
-                                                    <div class="avatar avatar-md mr-1">
-                                                        <img class="rounded-circle" src="{{  asset('admin/images/portrait/small/avatar-s-19.png') }}" alt="Generic placeholder image">
-                                                    </div>
-                                                    <span class="text-truncate">Lucas Pacheco</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>pacheco@hmail.com</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span>532 MB</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress my-75">
-                                                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="20" aria-valuemin="20" aria-valuemax="100" style="width:47%">47%</div>
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <span class="badge badge-danger">Blocked</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="dropdown">
-                                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </span>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">Subscription</a>
-                                                            <a class="dropdown-item" href="#">Extras</a>
-                                                            <a class="dropdown-item" href="#">Newslatter</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="col-xl-8 col-lg-12">
+    <div class="card active-users">
+        <div class="card-header border-0">
+            <h4 class="card-title">Active Users</h4>
+            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+            <div class="heading-elements">
+                <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-content">
+            <div id="audience-list-scroll" class="table-responsive position-relative overflow-auto" style="max-height: 400px">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>IMAGE</th>
+                            <th>NAME</th>
+                            <th>MOBILE</th>
+                            <th>EMAIL</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user )
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td style="width: 60px;"><img src="{{ !empty($user->image) ? asset('admin/images/user_images/' . $user->image) : asset('admin/images/user_images/no_image.jpg') }}" alt="User Image" class="rounded-circle" style="width: 40px; height: 40px;"></td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->mobile }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td class="text-center">
+                                @if($user->status == 1)
+                                    <span class="badge badge-success">Active</span>
+                                @else
+                                    <span class="badge badge-danger">Inactive</span>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 
                     <!-- my task Timeline -->
                     <div class="col-xl-4 col-lg-12">

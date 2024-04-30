@@ -6,7 +6,7 @@
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                                 class="feather icon-menu font-large-1"></i></a></li>
                     <li class="nav-item mr-auto"><a class="navbar-brand"
-                            href="../../../html/ltr/vertical-collapsed-menu-template/index.html"><img class="brand-logo"
+                            href="{{ url('admin/dashboard') }}"><img class="brand-logo"
                                 alt="stack admin logo" src="{{ asset('admin/images/logo/stack-logo-light.png') }}">
                             <h2 class="brand-text">Stack</h2>
                         </a></li>

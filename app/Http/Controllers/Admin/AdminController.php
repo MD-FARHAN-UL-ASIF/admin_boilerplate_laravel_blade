@@ -20,7 +20,10 @@ class AdminController extends Controller
     public function dashboard()
     {
         Session::put('page','dashboard');
-        return view('admin.dashboard');
+            $users = User::all();
+            $userCount = User::count();
+
+        return view('admin.dashboard', compact('users', 'userCount'));
     }
 
 public function login(Request $request)
