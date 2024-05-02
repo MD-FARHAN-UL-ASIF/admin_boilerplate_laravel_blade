@@ -44,9 +44,11 @@
     //front
     Route::prefix('/user')->namespace('App\Http\Controllers\Front')->group(function(){
         Route::match(['get', 'post'], 'login', 'UserController@loginUser')->name('user.login');
-    Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');
-    Route::middleware('user')->group(function () {
-        Route::get('index', 'UserController@index')->name('index');
+        Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');
+        Route::middleware('user')->group(function () {
+            Route::get('index', 'UserController@index')->name('index');
+            Route::get('logout', 'UserController@logoutUser');
+
     });
 });
 

@@ -93,5 +93,12 @@ public function registerUser(Request $request)
     }
 }
 
+public function logoutUser(Request $request)
+{
+    Auth::guard('user')->logout();
+
+    return redirect()->route('user.login')->with('success_message', 'Logged out successfully.');
+}
+
 
 }
