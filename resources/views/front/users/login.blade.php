@@ -118,7 +118,7 @@
                                             <div class="form-group row">
                                                
                                                 <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a
-                                                        href="recover-password.html" class="card-link">Forgot
+                                                        href="{{ url('user/forgot-password') }}" class="card-link">Forgot
                                                         Password?</a></div>
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary btn-block"><i

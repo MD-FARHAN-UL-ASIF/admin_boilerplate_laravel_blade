@@ -113,7 +113,7 @@
                                             </fieldset>
                                             <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-user"></i> Register</button>
                                         </form>
-                                        <a href="login-with-bg-image.html" class="btn btn-outline-danger btn-block mt-2"><i class="feather icon-unlock"></i> Login</a>
+                                        <a href="{{ url('user/login') }}" class="btn btn-outline-danger btn-block mt-2"><i class="feather icon-unlock"></i> Login</a>
                                     </div>
                                 </div>
                             </div>

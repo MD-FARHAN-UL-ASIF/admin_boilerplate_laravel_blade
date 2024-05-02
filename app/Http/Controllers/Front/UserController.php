@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -93,12 +94,68 @@ public function registerUser(Request $request)
     }
 }
 
-public function logoutUser(Request $request)
-{
-    Auth::guard('user')->logout();
+    public function logoutUser(Request $request)
+    {
+        Auth::guard('user')->logout();
 
-    return redirect()->route('user.login')->with('success_message', 'Logged out successfully.');
+        return redirect()->route('user.login')->with('success_message', 'Logged out successfully.');
+    }
+
+    public function forgotPassword(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data = $request->all();
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email|exists:users',
+            ], [
+                'email.exists' => 'Email does not exist'
+            ]);
+
+            if($validator->fails()){
+                return response()->json(['status' => false, 'type' => 'error', 'errors' => $validator->errors()]);
+            } else {
+                // Email exists, handle password reset logic here
+                $email = $data['email'];
+                $messageData = ['email' => $data['email'], 'code' => base64_encode($data['email'])];
+                Mail::send('emails.reset_password', $messageData, function($message) use($email){
+                    $message ->to($email)->subject('Reset Your Password - FARHANX');
+                });
+                return response()->json(['status' => true, 'type' => 'success', 'message' => 'Password reset link sent successfully']);
+            }
+        } else {
+            return view('front.users.forgot_password');
+        }
+    }
+
+        public function resetPassword(Request $request, $code=null)
+    {
+        if($request->ajax())
+        {
+            $data = $request->all();
+
+            $email = base64_decode($data['code']);
+            $userCount = User::where('email', $email)->count();
+            if($userCount>0)
+            {
+                //update New Password
+                User:: where('email', $email)->update(['password' => bcrypt($data['password'])]);
+
+                //send confirmation mail to user
+                $messageData = ['email' => $email];
+                Mail::send('emails.new_password_confirmation', $messageData, function($message) use ($email){
+                    $message->to($email)->subject('Password Updated - FARHANX');
+                });
+
+                //show success message
+                return response()->json(['type' =>'success', 'message' => 'password reset for your account. You can login with your new password now..........!']);
+            }else{
+                abort(404);
+            }
+        }else{
+            return view('front.users.reset_password')->with(compact('code'));
+        }
+    }
 }
 
 
-}

@@ -45,10 +45,11 @@
     Route::prefix('/user')->namespace('App\Http\Controllers\Front')->group(function(){
         Route::match(['get', 'post'], 'login', 'UserController@loginUser')->name('user.login');
         Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');
+        Route::match(['get', 'post'], 'forgot-password', 'UserController@forgotPassword');
+        Route::match(['get', 'post'], 'reset-password/{code?}', 'UserController@resetPassword');
         Route::middleware('user')->group(function () {
             Route::get('index', 'UserController@index')->name('index');
             Route::get('logout', 'UserController@logoutUser');
-
     });
 });
 

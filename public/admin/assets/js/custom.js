@@ -119,4 +119,34 @@ $(document).ready(function () {
             }
         })
     });
+
+    $("#forgotForm").submit(function () {
+        var formData = $(this).serialize();
+        $.ajax({
+            headers: {
+                'X-CSRF_TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/user/forgot-password",
+            type: 'post',
+            data: formData,
+            success: function (resp) {
+                if (resp.type == "error") {
+                    $.each(resp.errors, function (i, error) {
+                        $('.forgot-' + i).attr('style', 'color:red');
+                        $('.forgot-' + i).html(error);
+                        setTimeout(function () {
+                            $('.forgot-' + i).css({
+                                'display': 'none'
+                            })
+                        }, 4000);
+                    });
+                } else if (resp.type == "success") {
+                    $("#forgot-success").attr('style', 'color:green');
+                    $("#forgot-success").html(resp.message);
+                }
+            }, error: function () {
+                alert("Error");
+            }
+        })
+    });
 });
