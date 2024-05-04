@@ -62,6 +62,7 @@
                                     <div class="card-body">
                                         <p id="reset-success"></p>
 <form class="form-horizontal" id="resetPasswordForm" action="javascript:;" method="post" novalidate>@csrf
+<input type="hidden" name="email" value="{{ base64_decode($code) }}">
     <input type="hidden" name="code" value="{{ $code }}">
                                             <fieldset class="form-group position-relative has-icon-left">
                                                 <input type="password" class="form-control form-control-lg" id="reset-password" name="password" placeholder="Your New Password" required>

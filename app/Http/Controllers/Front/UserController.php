@@ -117,7 +117,8 @@ public function registerUser(Request $request)
             } else {
                 // Email exists, handle password reset logic here
                 $email = $data['email'];
-                $messageData = ['email' => $data['email'], 'code' => base64_encode($data['email'])];
+                $code = base64_encode($email);
+                $messageData = ['email' => $data['email'], 'code' => $code];
                 Mail::send('emails.reset_password', $messageData, function($message) use($email){
                     $message ->to($email)->subject('Reset Your Password - FARHANX');
                 });
@@ -129,33 +130,35 @@ public function registerUser(Request $request)
     }
 
         public function resetPassword(Request $request, $code=null)
+{
+    if($request->ajax())
     {
-        if($request->ajax())
+        $data = $request->all();
+
+        $email = base64_decode($data['code']);
+        $userCount = User::where('email', $email)->count();
+
+        if($userCount > 0)
         {
-            $data = $request->all();
+            // Update New Password
+            User::where('email', $email)->update(['password' => bcrypt($data['password'])]);
 
-            $email = base64_decode($data['code']);
-            $userCount = User::where('email', $email)->count();
-            if($userCount>0)
-            {
-                //update New Password
-                User:: where('email', $email)->update(['password' => bcrypt($data['password'])]);
+            // Send confirmation mail to user
+            $messageData = ['email' => $email];
+            Mail::send('emails.reset_password_confirmation', $messageData, function($message) use ($email){
+                $message->to($email)->subject('Password Updated - FARHANX');
+            });
 
-                //send confirmation mail to user
-                $messageData = ['email' => $email];
-                Mail::send('emails.new_password_confirmation', $messageData, function($message) use ($email){
-                    $message->to($email)->subject('Password Updated - FARHANX');
-                });
-
-                //show success message
-                return response()->json(['type' =>'success', 'message' => 'password reset for your account. You can login with your new password now..........!']);
-            }else{
-                abort(404);
-            }
-        }else{
-            return view('front.users.reset_password')->with(compact('code'));
+            // Show success message
+            return response()->json(['type' =>'success', 'message' => 'Password reset for your account. You can login with your new password now.']);
+        } else {
+            abort(404);
         }
+    } else {
+        // If the request is not AJAX, return the view for the reset password form
+        return view('front.users.reset_password')->with(compact('code'));
     }
+}
 }
 
 
