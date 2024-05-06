@@ -21,6 +21,10 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/vendors.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/forms/icheck/icheck.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/forms/icheck/custom.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/pickers/daterange/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/pickers/pickadate/pickadate.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -29,6 +33,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/colors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/components.css') }}">
     <!-- END: Theme CSS-->
+        <!-- Form WIZARD: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/menu/menu-types/vertical-menu-modern.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/colors/palette-gradient.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/plugins/forms/wizard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/plugins/pickers/daterange/daterange.css') }}">
+    <!-- END: Page CSS-->
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/menu/menu-types/vertical-menu-modern.css') }}">
@@ -38,6 +48,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/pages/vertical-timeline.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/tables/datatable/datatables.min.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/menu/menu-types/vertical-menu-modern.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/colors/palette-gradient.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/plugins/forms/checkboxes-radios.css') }}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -100,6 +113,17 @@
     <!-- END: Page Vendor JS-->
        <!-- BEGIN: Page JS-->
     <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.js') }}"></script>
+        <script src="{{  url('admin/js/scripts/forms/wizard-steps.js') }}"></script>
+    <script src="{{  url('admin/vendors/js/extensions/jquery.steps.min.js ') }}"></script>
+    <script src="{{  url('admin/vendors/js/pickers/dateTime/moment-with-locales.min.js ') }}"></script>
+    <script src="{{  url('admin/vendors/js/pickers/daterange/daterangepicker.js ') }}"></script>
+    <script src="{{  url('admin/vendors/js/pickers/pickadate/picker.js ') }}"></script>
+    <script src="{{  url('admin/vendors/js/pickers/pickadate/picker.date.js ') }}"></script>
+    <script src="{{  url('admin/vendors/js/forms/validation/jquery.validate.min.js ') }}"></script>
+        <script src="{{  url('admin/js/scripts/forms/checkbox-radio.js') }}"></script>
+            <script src="{{  url('admin/vendors/js/forms/icheck/icheck.min.js') }}"></script>
+
+
         {{-- <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.min.js') }}"></script> --}}
 
     <!-- END: Page JS-->

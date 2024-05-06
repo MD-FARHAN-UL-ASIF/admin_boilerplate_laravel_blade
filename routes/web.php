@@ -47,8 +47,12 @@
         Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');
         Route::match(['get', 'post'], 'forgot-password', 'UserController@forgotPassword');
         Route::match(['get', 'post'], 'reset-password/{code?}', 'UserController@resetPassword');
+        Route::get('project-form', 'UserController@projectForm');
+        Route::get('project-form-step','UserController@projectForm_2');
+        Route::post('project-form-submit','UserController@submitProjectForm');
         Route::middleware('user')->group(function () {
-            Route::get('index', 'UserController@index')->name('index');
+            Route::get('index', 'UserController@index')->name('user.index');
+          //  Route::match(['get','post'], '')
             Route::get('logout', 'UserController@logoutUser');
     });
 });
