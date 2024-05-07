@@ -1,0 +1,559 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+/*-------------------------------
+|        common styles          | 
+-------------------------------*/
+
+.text-one{
+    font-size: 50px;
+}
+
+.text-two{
+    font-size: 20px !important;
+    text-align: center !important;
+}
+
+.max-width {
+    max-width: 1140px !important;
+}
+
+.bg-headline{
+    background-color: #00BD64;
+}
+
+.social-fb:hover {
+    color: rgb(0, 183, 255);
+}
+
+.social-yt:hover {
+    color: rgb(231, 17, 17);
+}
+
+.social-links-top-right {
+    justify-content: end;
+}
+
+.nav-link:hover {
+    background-color: #01062E;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link {
+    color: #01062E !important;
+    font-size: 18px !important;
+}
+
+.contact-btn{
+    background-color: #01062E;
+}
+
+.hero{
+    background-image: linear-gradient(to bottom, #000000, #461E59);
+}
+
+.description{
+    color: rgb(163, 171, 186);
+}
+
+.iframe-wrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.join-btn{
+    /* border: 1px solid white;
+    border-style: dashed; */
+    background: #00BD64 !important;
+    color: #fff !important;
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.cta-btn-section{
+    gap: 3rem;
+}
+
+.shapes-container{
+    overflow-x: hidden;
+}
+
+.last-cta{
+    color: #3A0256;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.join-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+#right-box {
+    height: 20vh; 
+    flex: 1; 
+    border-bottom: 20vh solid #E81F64; 
+    border-right: 50vw solid transparent; 
+}
+
+#left-box {
+    height: 20vh;
+    flex: 1; 
+    border-bottom: 20vh solid #E81F64;
+    border-left: 50vw solid transparent;
+}
+
+/* why learn section */
+.why-learn-heading{
+    background-color: #461E59;
+}
+
+/* why learn section */
+.why-us{
+    background-color: #FFBCBC;
+}
+
+.cls-border{
+    border: 10px solid #00BD64;
+    border-style: dashed;
+}
+
+.why-us-heading{
+    background-color: #461E59;
+}
+
+.what-you-will-learn{
+    background-color: #461E59;
+}
+
+.what-you-will-learn-heading{
+    background-color: #FFFFFF;
+}
+
+.pp-list-img{
+    margin: 2.5rem 0;
+}
+
+.serach-bg{
+    background-color: #01062E;
+}
+
+.icon-title{
+    background-color: #01062E;
+}
+
+.input-field-group{
+    position: relative;
+}
+
+.input-field{
+    width: 100%;
+    height: 50px;
+    outline: 0;
+    padding: 10px;
+    padding-left: 40px;
+    border-radius: 8px;
+    border: 2px solid #000;
+}
+
+.icon-container{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*--------------------------------------- 
+|          resources section            |
+--------------------------------------- */
+
+.resources-section {
+    background-color: #EEF5FF;
+}
+
+.resources-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #01062E;
+}
+
+.b-bottom-middle {
+    margin-top: 1rem;
+    height: 1px;
+    width: 20%;
+    border: 1px solid black;
+}
+
+.resources-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #01062E;
+    text-align: center;
+}
+
+.resource-package-container {
+    padding: 1rem;
+
+}
+
+.card-container {
+    padding: 15rem !important;
+}
+
+.card {
+    background-color: #EEF5FF !important;
+}
+
+.card-img-top{
+    height: 200px;
+}
+
+.resource-link {
+    color: #01062E;
+}
+
+.five-step-img{
+    max-height: 400px;
+}
+
+/*--------------------------------------- 
+|            pricing section             |
+--------------------------------------- */
+
+svg {
+    display: block;
+}
+
+.pricing-plan{
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #e3e1de66, 
+                0 1px 2px #5f4a2e14, 
+                0 4px 6px #5f4a2e0a, 
+                0 40px 40px -24px #684b2514, 
+                0 56px 56px -32px #684b2514, 
+                0 24px 40px #684b250a, 
+                0 8px #70451a12 inset;
+    color: #37322f;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #fff !important;
+    border: none !important;
+}
+
+.pricing-plan-top {
+    padding: 32px 24px 23px;
+}
+
+.pricing-plan-label-plan, 
+.pricing-plan-title {
+    font-weight: 500;
+}
+
+.pricing-plan-label-plan, 
+.pricing-plan-title, 
+.pricing-plan-features-item, 
+.pricing-plan-label, 
+.pricing-plan-price-label {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.pricing-plan-title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    height: 24px;
+    color: #000000;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pricing-plan-title-badge{
+    padding: 4px 8px;
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    border-radius: 999px;
+    background-color: rgb(33, 143, 33);
+    box-shadow: 0 1px 2px #e1654052, 
+                0 3px 3px #e165401a, 
+                0 1px #ffdb9e3d inset;
+    color: #fbfaf9;
+}
+
+.pricing-plan-price{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.pricing-plan-price-value{
+    font-size: 28px;
+    line-height: 40px;
+    font-family: Alinur Tumatul;
+}
+
+.pricing-plan-price-label{
+    position: relative;
+    top: -2px;
+    color: #060404;
+}
+
+.pricing-plan .button {
+    width: 100%;
+    padding: 8px;
+}
+
+.button-primary {
+    color: #fbfaf9;
+    background-color: #01062E;
+    box-shadow: 0 1px 1px #2d20111f, 
+                0 1.50259px 3px #2d201133, 
+                0 4px 8px #2d201133, 
+                0 12px 24px -6px #2d20114d, 
+                0 -2px #000000bf inset;
+}
+
+.button {
+    width: -moz-max-content;
+    width: max-content;
+    display: flex;
+    padding: 8px 16px 8px 12px;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    gap: 4px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    transition: background-color .45s cubic-bezier(.6,.6,0,1), 
+                box-shadow .45s cubic-bezier(.6,.6,0,1), 
+                transform .45s cubic-bezier(.6,.6,0,1), 
+                opacity .45s cubic-bezier(.6,.6,0,1);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.pricing-plan-separator {
+    position: relative;
+    height: 2px;
+    margin: 0 24px;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.pricing-plan-features {
+    padding: 23px 24px 30px;
+}
+
+.pricing-plan-label {
+    margin-bottom: 16px;
+}
+
+.pricing-plan-features-item {
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.pkg-icon {
+    font-size: 16px; 
+    font-weight: 900;
+}
+
+.faq{
+    background-color: #000000;
+}
+
+.faq-heading{
+    background-color: #fff;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3c!--!Font Awesome Free 6.5.2 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons%2c Inc.--%3e%3cpath fill='white' d='M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3c!--!Font Awesome Free 6.5.2 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons%2c Inc.--%3e%3cpath fill='white' d='M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #00ACE9 !important;
+}
+
+.accordion-button {
+    box-shadow: none !important;
+    border-bottom: 1px solid #fff !important;
+}
+
+/* flipbook */
+
+
+/* footer */
+
+footer {
+    background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+.footer-text {
+    color: #d1cfcf;
+    text-align: start;
+}
+
+.footer-link {
+    color: #d1cfcf;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+@media (max-width: 992px) {
+    .text-one{
+        font-size: 45px;
+    }
+
+    .text-two{
+        font-size: 20px !important;
+        text-align: center !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
+    }
+
+    .contact-btn{
+        display: none !important;
+    }
+
+    .nav-item .nav-link{
+        border-bottom: 2px solid #01062E;
+    }
+
+    #right-box {
+        height: 12vh;
+        border-bottom: 12vh solid #E81F64;
+
+    }
+    #left-box {
+        height: 12vh;
+        border-bottom: 12vh solid #E81F64;
+        
+    }
+
+    .pp-list-img{
+        margin: 1.5rem 0;
+    }
+
+    .pp-list-1{
+        margin-right: 1rem !important;
+    }
+    .pp-list-2{
+        margin: 0 3rem !important;
+    }
+    .pp-list-3{
+        margin-left: 1rem !important;
+    }
+
+    .custom-padding{
+        padding: 0rem 2rem !important;
+    }
+
+    .footer-elements{
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-text {
+        max-width: 70%;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .nav-item .nav-link {
+        font-size: 16px !important;
+    }
+
+    .nav-link {
+        font-size: 16px !important;
+    }
+
+    .text-one{
+        font-size: 28px;
+    }
+
+    .text-two{
+        font-size: 18px !important;
+        text-align: center !important;
+    }
+
+    .cta-btn-section{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .pp-list-img{
+        margin: 1rem 0;
+    }
+
+    .footer-logo {
+        width: 60%;
+    }
+
+    .footer-text {
+        max-width: 100%;
+        text-align: justify;
+    }
+}

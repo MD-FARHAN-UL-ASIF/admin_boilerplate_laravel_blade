@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\AdminsPermission;
 use App\Models\User;
+use App\Models\ProjectForms;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cookie;
@@ -474,5 +475,24 @@ public function checkCurrentPassword(Request $request)
             User::where('id', $user_id)->delete();
             return redirect()->back()->with('success_message', 'User deleted...!');
         }
+
+
+        //view all project request
+        public function projectForm()
+        {
+            Session::put('page', 'project');
+
+            $projectForms = ProjectForms::all();
+
+            return view('admin.project.project', compact('projectForms'));
+
+        }
+
+                //view project by project_id
+                public function projectFormById($id)
+                {   
+                    $projectForm = ProjectForms::findOrFail($id);
+                    return view('admin.project.details')->with(compact('projectForm'));
+                }
 
 }

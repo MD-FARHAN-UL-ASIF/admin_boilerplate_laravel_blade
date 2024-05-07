@@ -174,6 +174,9 @@ public function registerUser(Request $request)
         public function submitProjectForm(Request $request)
     {
         // dd($request);
+    $userId = Auth::guard('user')->id();
+        //  dd($userId);
+
         // Validate the incoming request data
         $validatedData = $request->validate([
             'status' => 'required|string',
@@ -223,10 +226,9 @@ public function registerUser(Request $request)
         // dd($validatedData);
 
         try {
-            // Create a new ProjectForm instance
             $projectForm = new ProjectForms;
 
-            // Set the properties of the ProjectForm instance
+            $projectForm->user_id = $userId;
             $projectForm->status = $validatedData['status'];
             $projectForm->project_type = json_encode($validatedData['project_type']);
             $projectForm->project_name = $validatedData['project_name'];

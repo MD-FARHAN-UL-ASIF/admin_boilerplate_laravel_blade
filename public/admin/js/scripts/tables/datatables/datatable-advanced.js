@@ -195,6 +195,7 @@ $(document).ready(function () {
     $('.custom-toolbar-elements').DataTable({
         "dom": '<"toolbar">frtip'
     });
+
     $("div.toolbar").html('<b>FARHANX</b>');
 
 

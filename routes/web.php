@@ -27,6 +27,10 @@
             Route::post('update-user-status', 'AdminController@updateUserStatus');
             Route::get('delete-user/{user_id?}', 'AdminController@deleteUser');
 
+            //project-form
+            Route::get('project', 'AdminController@projectForm');
+            Route::get('project-details/{id}', 'AdminController@projectFormById');
+
 
 
                     //subadmin
@@ -61,3 +65,33 @@
         // Return the view for the 403 error page
         return view('admin.errors.error_403');
     })->name('admin.errors.error_403');
+
+
+    Route::get('wise-corporation/index', function () {
+    return view('wise_corporation.index');
+});
+Route::get('wise-corporation/project-profile', function () {
+    return view('wise_corporation.project_profile');
+});
+
+Route::get('wise-corporation/category', function () {
+    return view('wise_corporation.category');
+});
+Route::get('wise-corporation/service', function () {
+    return view('wise_corporation.service');
+});
+Route::get('wise-corporation/checkout', function () {
+    return view('wise_corporation.checkout');
+});
+
+Route::get('wise-corporation/privacy-policy', function () {
+    return view('wise_corporation.privacy_policy');
+});
+
+Route::get('wise-corporation/terms&condition', function () {
+    return view('wise_corporation.terms');
+});
+
+Route::get('wise-corporation/refund-policy', function () {
+    return view('wise_corporation.refund');
+});

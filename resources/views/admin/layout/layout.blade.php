@@ -47,6 +47,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/pages/card-statistics.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/pages/vertical-timeline.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/tables/datatable/datatables.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}">
+
 
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/menu/menu-types/vertical-menu-modern.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/colors/palette-gradient.css') }}">
@@ -112,6 +114,8 @@
     <script src="{{ url('admin/vendors/js/tables/buttons.print.min.js') }}"></script>
     <!-- END: Page Vendor JS-->
        <!-- BEGIN: Page JS-->
+           <script src="{{ url('admin/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.js') }}"></script>
+
     <script src="{{ url('admin/js/scripts/tables/datatables/datatable-advanced.js') }}"></script>
         <script src="{{  url('admin/js/scripts/forms/wizard-steps.js') }}"></script>
     <script src="{{  url('admin/vendors/js/extensions/jquery.steps.min.js ') }}"></script>

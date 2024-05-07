@@ -1,0 +1,144 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+.max-width {
+    max-width: 1140px !important;
+}
+
+.nav-link:hover {
+    background-color: #01062E;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link {
+    color: #01062E !important;
+    font-size: 18px !important;
+}
+
+.contact-btn{
+    background-color: #01062E;
+}
+
+.social-fb:hover {
+    color: rgb(0, 183, 255);
+}
+
+.social-yt:hover {
+    color: rgb(231, 17, 17);
+}
+
+.hero {
+    background-image: linear-gradient(to bottom, #000000, #461E59);
+}
+
+.contact-btn {
+    background-color: #01062E !important;
+}
+
+/* heading section */
+
+.heading {
+    height: 200px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 65, 115, 1) 100%);
+}
+
+/* descriptions section */
+
+.description{
+    margin: 3rem 0rem;
+}
+
+.text-color{
+    color: #01062E;
+}
+
+.terms-width{
+    max-width: 50%;
+}
+
+/* footer */
+
+footer {
+    background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+.footer-text {
+    color: #d1cfcf;
+    text-align: start;
+}
+
+.footer-link {
+    color: #d1cfcf;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.social-links-top-right {
+    justify-content: end;
+}
+
+@media (max-width: 992px) {
+
+    .contact-btn{
+        display: none !important;
+    }
+
+    .nav-item .nav-link{
+        border-bottom: 2px solid #01062E;
+    }
+
+    .nav-item .nav-link {
+        border-bottom: 2px solid #01062E;
+    }
+
+    .terms-width{
+        max-width: 80%;
+    }
+
+    .custom-padding{
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-item .nav-link {
+        font-size: 16px !important;
+    }
+
+    .nav-link {
+        font-size: 16px !important;
+    }
+
+    .terms-width{
+        max-width: 100%;
+    }
+
+    .footer-elements{
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-text {
+        max-width: 70%;
+    }
+}

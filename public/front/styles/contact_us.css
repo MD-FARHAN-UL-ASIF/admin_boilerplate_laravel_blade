@@ -1,0 +1,130 @@
+*,
+*::after,
+*::before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+/* common styles */
+
+.max-width {
+    max-width: 1140px !important;
+}
+
+.contact-btn {
+    background-color: #01062E;
+}
+
+/* navbar */
+
+.nav-link:hover {
+    background-color: #01062E;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link {
+    color: #01062E !important;
+    font-size: 18px !important;
+}
+
+.social-fb:hover {
+    color: rgb(0, 183, 255);
+}
+
+.social-yt:hover {
+    color: rgb(231, 17, 17);
+}
+
+/* footer */
+
+footer {
+    background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+.footer-text {
+    color: #d1cfcf;
+    text-align: start;
+}
+
+.footer-link {
+    color: #d1cfcf;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.social-links-top-right {
+    justify-content: end;
+}
+
+/* contact section */
+.contact-container {
+    padding: 0 3rem !important;
+}
+
+.submit-btn{
+    background-color: #01062E !important;
+    color: #fff !important;
+}
+
+@media (max-width: 992px) {
+    .contact-btn {
+        display: none !important;
+    }
+
+    .nav-item .nav-link {
+        border-bottom: 2px solid #01062E;
+    }
+
+    .nav-item .nav-link {
+        border-bottom: 2px solid #01062E;
+    }
+
+    .custom-padding {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
+    }
+
+    /* contact section */
+    .contact-container {
+        padding: 0 0 !important;
+    }
+
+    .map-container{
+        margin: 3rem 0 0 0 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-item .nav-link {
+        font-size: 16px !important;
+    }
+
+    .nav-link {
+        font-size: 16px !important;
+    }
+
+    .footer-elements {
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-text {
+        max-width: 70%;
+    }
+}

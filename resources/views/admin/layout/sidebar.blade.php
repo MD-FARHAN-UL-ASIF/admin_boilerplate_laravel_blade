@@ -66,6 +66,14 @@
                     </li>
                 </ul>
             </li>
+            
+            @php
+                $active = Session::get('page') == 'project' ? 'active' : '';
+            @endphp
+            <li class="nav-item {{ $active }}"><a href="{{ url('admin/project') }}"><i
+                        class="feather icon-slack"></i><span class="menu-title"
+                        data-i18n="CmsPage">Project Request</span></a></li>
+            
         </ul>
     </div>
 </div>

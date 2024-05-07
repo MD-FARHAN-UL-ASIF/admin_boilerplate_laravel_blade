@@ -1,0 +1,145 @@
+*, *::after, *::before{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+/* header */
+
+.max-width {
+    max-width: 1140px !important;
+}
+
+.nav-link:hover {
+    background-color: #01062E;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link {
+    color: #01062E !important;
+    font-size: 18px !important;
+}
+
+.contact-btn{
+    background-color: #01062E;
+}
+
+.social-fb:hover {
+    color: rgb(0, 183, 255);
+}
+
+.social-yt:hover {
+    color: rgb(231, 17, 17);
+}
+
+/* cart */
+.cart-heading{
+    margin-top: 3rem;;
+}
+
+.cart-content{
+    padding: 1.5rem;
+}
+
+.cart-item{
+    padding: 0rem 1.5rem;
+}
+
+.cart-btn{
+    background-color: #01062E;
+    color: #fff;
+}
+
+/* contact */
+
+.buy-offline:hover{
+    border-color: black !important;
+}
+
+/* footer */
+
+footer {
+    background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+.footer-text {
+    color: #d1cfcf;
+    text-align: start;
+}
+
+.footer-link {
+    color: #d1cfcf;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.social-links-top-right {
+    justify-content: end;
+}
+
+@media (max-width: 992px) {
+
+    .contact-btn{
+        display: none !important;
+    }
+
+    .nav-item .nav-link{
+        border-bottom: 2px solid #01062E;
+    }
+
+    .nav-item .nav-link {
+        border-bottom: 2px solid #01062E;
+    }
+
+    .custom-padding{
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
+    }
+
+    .cart-content{
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-item .nav-link {
+        font-size: 16px !important;
+    }
+
+    .nav-link {
+        font-size: 16px !important;
+    }
+
+    .cart-heading{
+        margin: 1.5rem 0rem;
+    }
+
+    .cart-content{
+        padding: 0rem;
+        gap: 1.5rem;
+    }
+
+    .footer-elements{
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-text {
+        max-width: 70%;
+    }
+}
