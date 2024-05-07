@@ -103,3 +103,7 @@ Route::get('wise-corporation/contact-us', function () {
 Route::get('wise-corporation/email', function () {
     return view('wise_corporation.email');
 });
+
+Route::get('wise-corporation/track-order', function () {
+    return view('wise_corporation.track_order');
+});

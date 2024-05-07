@@ -18,6 +18,8 @@
                     <link rel="stylesheet" href="{{ url ('front/styles/checkout.css') }}">
                         <link rel="stylesheet" href="{{ url ('front/styles/terms.css') }}">
                             <link rel="stylesheet" href="{{ url ('front/styles/contact_us.css') }}">
+                                <link rel="stylesheet" href="{{ url ('front/styles/track_order.css') }}">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
         integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
