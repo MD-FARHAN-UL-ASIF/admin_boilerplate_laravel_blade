@@ -95,3 +95,11 @@ Route::get('wise-corporation/terms&condition', function () {
 Route::get('wise-corporation/refund-policy', function () {
     return view('wise_corporation.refund');
 });
+
+Route::get('wise-corporation/contact-us', function () {
+    return view('wise_corporation.contact_us');
+});
+
+Route::get('wise-corporation/email', function () {
+    return view('wise_corporation.email');
+});

@@ -110,7 +110,7 @@
                     </div>
                     <div class="nav-item btn-stylish rounded-4 py-1 px-3 mx-1 contact-btn">
                         <a class="nav-link text-white fw-semibold py-auto" aria-current="page"
-                            href="./contact_us.html">যোগাযোগ করুন</a>
+                            href="{{ url('wise-corporation/contact-us') }}">যোগাযোগ করুন</a>
                     </div>
                 </div>
             </nav>
