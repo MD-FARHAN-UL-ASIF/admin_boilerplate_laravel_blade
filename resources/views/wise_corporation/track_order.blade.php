@@ -11,7 +11,7 @@
                     </div>
                     <div class="product-details-container">
                         <h6 class="title">Product Name</h6>
-                        <h6 class="category">Category</h6>
+                        <h6 class="track__category">Category</h6>
                         <h6 class="price">Price</h6>
                     </div>
                 </div>

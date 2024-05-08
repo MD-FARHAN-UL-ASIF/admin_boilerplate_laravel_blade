@@ -8,6 +8,7 @@
 
     Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function () {
         Route::match (['get', 'post'], 'login', 'AdminController@login');
+        
         Route::group(['middleware' => ['admin']], function () {
             Route::get('dashboard', 'AdminController@dashboard');
             Route::post('check_current_password', 'AdminController@checkCurrentPassword');
@@ -44,6 +45,11 @@
 
         });
     });
+
+    //services
+    Route::get('wise-corporation/services', 'ServiceController@index');
+
+
 
     //front
     Route::prefix('/user')->namespace('App\Http\Controllers\Front')->group(function(){

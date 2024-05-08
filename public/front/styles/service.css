@@ -1,4 +1,6 @@
-*, *::after, *::before{
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -19,15 +21,15 @@
     font-size: 18px !important;
 }
 
-.contact-btn{
+.contact-btn {
     background-color: #01062E;
 }
 
-.text-one{
+.text-one {
     font-size: 48px;
 }
 
-.text-two{
+.text-two {
     font-size: 24px !important;
     text-align: center !important;
 }
@@ -36,7 +38,7 @@
     max-width: 1140px !important;
 }
 
-.bg-color{
+.bg-color {
     background-color: #461E59;
 }
 
@@ -48,11 +50,11 @@
     color: rgb(231, 17, 17);
 }
 
-.hero-heading-style{
+.hero-heading-style {
     color: #00FFBA !important;
 }
 
-.header-bg{
+.header-bg {
     /* border-radius: 0% 0% 26% 79% / 0% 0% 12% 22%; */
     background-image: linear-gradient(to bottom, #000000, #461E59);
 }
@@ -75,14 +77,14 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-.buy-btn{
+.buy-btn {
     border: 1px solid white;
     border-style: dashed;
     transition: transform 0.3s ease;
     z-index: 5;
 }
 
-.custom-btn{
+.custom-btn {
     margin-top: 3rem;
 }
 
@@ -94,9 +96,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
@@ -106,7 +110,7 @@
     animation: pulse 1s infinite;
 }
 
-.book-img{
+.book-img {
     height: auto;
     width: 60%;
 }
@@ -135,48 +139,48 @@ footer {
 
 
 /* services */
-.services{
+.services {
     background-color: #F6F5F2;
 }
 
-.description {
+.service__description {
     font-size: 20px;
     font-weight: 500;
 }
 
-.button{
+.button {
     color: #fff;
     background-color: #01062E;
     font-weight: 600;
 }
 
 @media (max-width: 992px) {
-    .contact-btn{
+    .contact-btn {
         display: none !important;
     }
 
-    .nav-item .nav-link{
+    .nav-item .nav-link {
         border-bottom: 2px solid #01062E;
     }
 
-    .text-one{
+    .text-one {
         font-size: 45px;
     }
 
-    .text-two{
+    .text-two {
         font-size: 20px !important;
         text-align: justify !important;
     }
 
-    .hero-description{
+    .hero-description {
         text-align: justify;
     }
 
-    .custom-padding{
+    .custom-padding {
         padding: 0 2rem !important;
     }
 
-    .custom-btn{
+    .custom-btn {
         margin-top: 1.5rem;
     }
 
@@ -184,7 +188,7 @@ footer {
         justify-content: center;
     }
 
-    .footer-elements{
+    .footer-elements {
         padding-top: 3rem;
         padding-left: 3rem;
     }
@@ -208,16 +212,16 @@ footer {
         font-size: 16px !important;
     }
 
-    .text-one{
+    .text-one {
         font-size: 28px;
     }
 
-    .text-two{
+    .text-two {
         font-size: 18px !important;
         text-align: justify !important;
     }
 
-    .custom-btn{
+    .custom-btn {
         margin-top: 0.5rem;
     }
 

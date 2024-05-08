@@ -72,42 +72,42 @@ footer {
     margin: 0 auto;
 }
 
-.product-info{
+.product-info {
     border-bottom: 1px dashed #01062E;
 }
 
-.product-img{
+.product-img {
     border-radius: 50%;
     border: 1px solid #01062E;
 }
 
-.title{
+.title {
     font-size: 1.4rem;
     font-weight: 500;
 }
 
-.category{
+.track__category {
     font-size: 1rem;
     font-weight: 300;
 }
 
-.price{
+.price {
     font-size: 1.6rem;
     font-weight: 500;
 }
 
-.status{
+.status {
     font-size: 1.3rem;
     font-weight: 500;
     margin-bottom: 3px;
 }
 
-.date{
+.date {
     font-size: 1rem;
     font-weight: 300;
 }
 
-.progress-steps{
+.progress-steps {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -115,7 +115,7 @@ footer {
     justify-content: center;
 }
 
-.progress-steps li > span{
+.progress-steps li>span {
     position: relative;
     width: 40px;
     height: 40px;
@@ -125,25 +125,25 @@ footer {
     align-items: center;
     margin-right: 1em;
     border-radius: 50%;
-    background-color: #01062E;
+    background-image: linear-gradient(to bottom, #E1F7F5, #1E0342, #0E46A3);
     z-index: 1;
 }
 
-.progress-steps li{
+.progress-steps li {
     position: relative;
     display: flex;
     align-items: flex-start;
     margin-bottom: 2em;
 }
 
-.progress-steps li:not(:last-child)::before{
+.progress-steps li:not(:last-child)::before {
     content: '';
     position: absolute;
     left: 20px;
     right: 30px;
     width: 2px;
     height: 100px;
-    background-image: linear-gradient(to bottom, #01062E, #001dfa, #00faaf);
+    background-image: linear-gradient(to bottom, #0E46A3, #1E0342, #E1F7F5);
 }
 
 @media (max-width: 992px) {
@@ -167,7 +167,7 @@ footer {
     .social-links-top-right {
         justify-content: center;
     }
-    
+
 }
 
 @media (max-width: 576px) {
@@ -192,7 +192,7 @@ footer {
         max-width: 70%;
     }
 
-    .status{
+    .status {
         font-size: 1rem;
     }
 }

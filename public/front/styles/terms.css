@@ -1,4 +1,6 @@
-*, *::after, *::before{
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -20,7 +22,7 @@
     font-size: 18px !important;
 }
 
-.contact-btn{
+.contact-btn {
     background-color: #01062E;
 }
 
@@ -42,7 +44,7 @@
 
 /* heading section */
 
-.heading {
+.__heading {
     height: 200px;
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 65, 115, 1) 100%);
@@ -50,15 +52,15 @@
 
 /* descriptions section */
 
-.description{
+.description {
     margin: 3rem 0rem;
 }
 
-.text-color{
+.text-color {
     color: #01062E;
 }
 
-.terms-width{
+.terms-width {
     max-width: 50%;
 }
 
@@ -90,11 +92,11 @@ footer {
 
 @media (max-width: 992px) {
 
-    .contact-btn{
+    .contact-btn {
         display: none !important;
     }
 
-    .nav-item .nav-link{
+    .nav-item .nav-link {
         border-bottom: 2px solid #01062E;
     }
 
@@ -102,11 +104,11 @@ footer {
         border-bottom: 2px solid #01062E;
     }
 
-    .terms-width{
+    .terms-width {
         max-width: 80%;
     }
 
-    .custom-padding{
+    .custom-padding {
         padding-left: 2rem !important;
         padding-right: 2rem !important;
     }
@@ -125,11 +127,11 @@ footer {
         font-size: 16px !important;
     }
 
-    .terms-width{
+    .terms-width {
         max-width: 100%;
     }
 
-    .footer-elements{
+    .footer-elements {
         padding-top: 3rem;
         padding-left: 3rem;
     }

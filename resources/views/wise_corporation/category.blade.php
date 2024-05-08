@@ -1,9 +1,9 @@
    @extends('wise_corporation.layout.layout')
 
     @section('content')
-        <main class="py-5">
+        <main class="bg__main py-5">
         <section class="container max-width custom-padding">
-            <img class="col-12 img-fluid" src="./assets/images/demo.png" alt="">
+            <img class="col-12 img-fluid" src="{{ asset('front/assets/images/demo.png') }}" alt="">
         </section>
         <section class="container max-width custom-padding pt-5">
             <div class="row justify-content-between align-items-center py-2 --breadcrumb">

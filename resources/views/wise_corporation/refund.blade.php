@@ -2,7 +2,7 @@
 @section('content')
 
     <main>
-        <section class="heading d-flex align-items-center">
+        <section class="__heading d-flex align-items-center">
             <div class="container max-width d-flex  justify-content-center">
                 <h4 class="text-white fs-2 fw-bold my-auto">রিফান্ড পলিসি</h4>
             </div>

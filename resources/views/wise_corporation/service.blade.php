@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <h1 class="fs-3 fw-bold">বিজনেস প্ল্যান তৈরী</h1>
-                            <p class="description">
+                            <p class="service__description">
                                 আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <h1 class="fs-3 fw-bold">মার্কেট স্টাডি</h1>
-                            <p class="description">
+                            <p class="service__description">
                                 আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <h1 class="fs-3 fw-bold">ফিনান্সিয়াল এনালাইসিস</h1>
-                            <p class="description">আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।</p>
+                            <p class="service__description">আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।</p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <h1 class="fs-3 fw-bold">ফান্ড ম্যানেজমেন্ট</h1>
-                            <p class="description">
+                            <p class="service__description">
                                 আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <h1 class="fs-3 fw-bold">কোম্পানি প্রোফাইল</h1>
-                            <p class="description">
+                            <p class="service__description">
                                 আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
