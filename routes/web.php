@@ -35,6 +35,7 @@
             //services
             Route::get('services', 'ServiceController@index');
             Route::match(['get', 'post'],'add-edit-service/{id?}', 'ServiceController@addEditService');
+            Route::get('delete-service/{id?}', 'ServiceController@deleteService');
 
 
                     //subadmin
@@ -69,6 +70,11 @@
     });
 });
 
+
+Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->group(function(){
+    Route::get('service','HomeController@service');
+});
+
     Route::get('/admin/errors/error_403', function () {
         // Return the view for the 403 error page
         return view('admin.errors.error_403');
@@ -85,9 +91,9 @@ Route::get('wise-corporation/project-profile', function () {
 Route::get('wise-corporation/category', function () {
     return view('wise_corporation.category');
 });
-Route::get('wise-corporation/service', function () {
-    return view('wise_corporation.service');
-});
+// Route::get('wise-corporation/service', function () {
+//     return view('wise_corporation.service');
+// });
 Route::get('wise-corporation/checkout', function () {
     return view('wise_corporation.checkout');
 });

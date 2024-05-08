@@ -41,19 +41,27 @@
             
             <section class="services">
                 <div class="max-width container custom-padding py-5">
+                @foreach ($services as $service)
                     <div class="row mb-5 gap-5">
                         <div class="col-12 col-md-4">
-                            <img class="img-fluid rounded" style="height: 220px;" src="{{ asset ('front/assets/images/tmp-2.jpeg') }}" alt="">
+                            {{-- <img class="img-fluid rounded" style="height: 220px;" src="{{ asset ('front/assets/images/tmp-2.jpeg') }}" alt=""> --}}
+                            @if (!empty($service['image']))
+                                <img src="{{ asset('admin/images/service_images/' . $service['image']) }}" class="img-fluid rounded" style="height: 220px;" alt="Service Image">
+                                @else
+                                <img src="{{ asset('admin/images/service_images/no_image.jpg') }}" class="img-fluid rounded" style="height: 220px;" alt="No Image">
+                            @endif
                         </div>
                         <div class="col-12 col-md-6">
-                            <h1 class="fs-3 fw-bold">বিজনেস প্ল্যান তৈরী</h1>
+                            <h1 class="fs-3 fw-bold">{{ $service['title'] }}</h1>
                             <p class="service__description">
-                                আমরা আপনার প্রজেক্টের ধরণ ও ক্যাটাগরি অনুসারে একটি সঠিক বিসনেস প্ল্যান তৈরী করার মাধ্যমে আপনার প্রোডাক্ট এবং সার্ভিসকে মার্কেটে সুসংহত করতে সাহায্য করতে পারি। বিস্তারিত জানতে Learn More বাটন-এ ক্লিক করুন।
+                                {{ $service['description'] }}
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
                         </div>
                     </div>
-                    <div class="row mb-5 gap-5">
+                @endforeach
+
+                    {{-- <div class="row mb-5 gap-5">
                         <div class="col-12 col-md-4">
                             <img class="img-fluid rounded" style="height: 220px;" src="{{ asset ('front/assets/images/tmp-3.jpeg') }}" alt="">
                         </div>
@@ -100,7 +108,7 @@
                             </p>
                             <button class="px-3 py-1 border-0 rounded-3 button">Learn More</button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
         </main>

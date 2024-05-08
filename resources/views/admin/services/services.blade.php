@@ -76,7 +76,7 @@
                                                     <td>
                                                         <a href="{{ url('admin/add-edit-service/'. $service['id'] ) }}"><i class="fa fa-edit"></i></a>
                                                     &nbsp;&nbsp;
-                                                        {{-- <a href="{{ url('admin/delete-user/'.$user->id) }}"><i class="fa fa-trash"></i></a>       --}}
+                                                        <a href="{{ url('admin/delete-service/'.$service['id']) }}"><i class="fa fa-trash"></i></a>      
                                                 </td>
                                                 </tr>
                                                 @endforeach
