@@ -43,6 +43,11 @@
             Route::get('delete-category/{id?}', 'CategoryController@deleteCategory');
 
 
+            //sub-category
+             Route::get('sub-categories','CategoryController@sub_category');
+            Route::match(['get', 'post'], 'add-edit-sub-category/{id?}', 'CategoryController@addEditSubCategory');
+            Route::get('delete-sub-category/{id?}', 'CategoryController@deleteSubCategory');           
+
                     //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
                 Route::get('subadmins', 'AdminController@subadmins');

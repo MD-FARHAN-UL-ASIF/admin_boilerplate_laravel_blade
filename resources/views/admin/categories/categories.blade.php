@@ -73,7 +73,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>NAME</th>
-                                                    <th>ACTION</th>
+                                                    <th class="text-center">ACTION</th>
 
                                                 </tr>
                                             </tfoot>
