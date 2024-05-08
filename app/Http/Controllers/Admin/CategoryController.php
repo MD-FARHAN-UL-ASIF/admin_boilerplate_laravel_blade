@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
@@ -52,6 +53,25 @@ class CategoryController extends Controller
                 // If validation fails, set error message and redirect back
                 return redirect()->back()->with('error_message', $validator->errors()->first());
             }  
+
+             // Check if image was uploaded
+        if ($request->hasFile('image')) {
+            $image_tmp = $request->file('image');
+            if ($image_tmp->isValid()) {
+                // Get image extension
+                $extension = $image_tmp->getClientOriginalExtension();
+                // Generate new image name
+                $image_name = rand(111, 99999) . '.' . $extension;
+                $image_path = 'admin/images/category_images/' . $image_name;
+                // Save image
+                Image::make($image_tmp)->save($image_path);
+                // Assign image name to data
+                $category->image = $image_name;
+            }
+        } elseif (!$category->image) {
+                // If no image was uploaded and no image is already set, assign default image
+                $category->image = 'no_image.jpg';
+            }
 
             $category->name = $data['name'];
             $category->save();

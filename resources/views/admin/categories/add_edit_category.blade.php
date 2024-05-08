@@ -64,8 +64,39 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                        <form name= "categoryForm" id="categoryForm" @if(empty($category['id'])) action = "{{ url('admin/add-edit-category') }}" @else action="{{ url('admin/add-edit-category/'.$category['id']) }}" @endif method="POST">@csrf
+                                        <form name= "categoryForm" id="categoryForm" @if(empty($category['id'])) action = "{{ url('admin/add-edit-category') }}" @else action="{{ url('admin/add-edit-category/'.$category['id']) }}" @endif method="POST" enctype="multipart/form-data" >@csrf
                                             <div class="form-body">
+                                                <div class="media">
+                                        @if (!empty($category['image']))
+                                            <a href="{{ asset('admin/images/category_images/' . $category['image']) }}"
+                                                target="blank">
+                                                <img src="{{ asset('admin/images/category_images/' . $category['image']) }}"
+                                                    class="rounded mr-75" alt="category image" height="64"
+                                                    width="64">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset('admin/images/category_images/no_image.jpg') }}"
+                                                target="blank">
+                                                <img src="{{ asset('admin/images/category_images/no_image.jpg') }}"
+                                                    class="rounded mr-75" alt="category image" height="64"
+                                                    width="64">
+                                            </a>
+                                        @endif
+                                            <div class="media-body mt-75">
+                                                <div
+                                                    class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                    <label
+                                                        class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
+                                                        for="image">Upload new photo</label>
+                                                    <input type="file" id="image"
+                                                        name="image" accept="image/*" hidden>
+                                                    <button
+                                                        class="btn btn-sm btn-secondary ml-50">Reset</button>
+                                                </div>
+                                                <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or
+                                                        PNG. Max size of 800kB</small></p>
+                                            </div>
+                                    </div>
 
                                                 <div class="form-group">
                                                     <label for="name">Category Name</label>

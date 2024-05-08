@@ -9,8 +9,8 @@ use App\Models\service;
 class HomeController extends Controller
 {
      public function service()
-{
-    $services = Service::get()->toArray();
-    return view('wise_corporation.service', compact('services'));
-}
+    {
+        $services = Service::get()->toArray();
+        return view('wise_corporation.service', compact('services'));
+    }
 }

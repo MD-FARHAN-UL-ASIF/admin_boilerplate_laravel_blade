@@ -50,6 +50,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>NAME</th>
+                                                    <th>IMAGE</th>
                                                     <th class="text-center">ACTION</th>
                                                 </tr>
                                             </thead>
@@ -58,6 +59,13 @@
                                                 <tr>
                                                     <td>{{ $category['id'] }}</td>
                                                     <td>{{ $category['name'] }}</td>
+                                                    <td>
+                                                        @if (!empty($category['image']))
+                                                        <img src="{{ asset('admin/images/category_images/' . $category['image']) }}" class="img-fluid rounded" style="width: 100px; height: auto;" alt="Service Image">
+                                                        @else
+                                                        <img src="{{ asset('admin/images/category_images/no_image.jpg') }}" class="img-fluid rounded" style="width: 100px; height: auto;" alt="No Image">
+                                                        @endif
+                                                    </td>
                                                     <td class="text-center">
                                                         <a href="{{ url('admin/add-edit-category/'. $category['id'] ) }}"><i class="fa fa-edit"></i></a>
                                                     &nbsp;&nbsp;
@@ -73,6 +81,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>NAME</th>
+                                                    <th>IMAGE</th>
                                                     <th class="text-center">ACTION</th>
 
                                                 </tr>

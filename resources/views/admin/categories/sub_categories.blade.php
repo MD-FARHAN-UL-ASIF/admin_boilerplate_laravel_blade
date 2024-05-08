@@ -32,7 +32,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ url('admin/add-edit-sub_category') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Sub-Category</button></a>
+                                <a href="{{ url('admin/add-edit-sub-category') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Sub-Category</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -58,6 +58,7 @@
                                                     <th>Description</th>
                                                     <th>Price</th>
                                                     <th>Category</th>
+                                                    <th>Latest Modification</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
@@ -74,6 +75,7 @@
                                                         <td>{{ $subCategory->description }}</td>
                                                         <td>{{ $subCategory->price }}</td>
                                                         <td>{{ $subCategory->category->name }}</td> <!-- Access category name through the relationship -->
+                                                        <td>{{ date("F j, Y, g:i a", strtotime($subCategory['updated_at'])); }}</td>
                                                         <td class="text-center">
                                                             <a href="{{ url('admin/add-edit-sub-category/'. $subCategory->id ) }}"><i class="fa fa-edit"></i></a>
                                                             &nbsp;&nbsp;

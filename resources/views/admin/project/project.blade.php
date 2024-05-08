@@ -58,7 +58,7 @@
                                                     <th>COMPANY NAME</th>
                                                     <th>TOTAL EMPLOYEE</th>
                                                     <th>CREATED AT</th>
-                                                    {{-- <th>ACTIONS</th> --}}
+                                                    <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -83,26 +83,11 @@
                                                     <td>{{ $projectForm['company_name'] }}</td>
                                                     <td>{{ $projectForm['total_employess'] }}</td>
                                                     <td>{{ date("F j, Y, g:i a", strtotime($projectForm->created_at)) }}</td>
-                                                    {{-- <td>
-                                                        @if($pagesModule['edit_access']==1 || $pagesModule['full_access']==1)
-                                                        @if($page['status']==1)
-                                                        <a class="updateCmsPageStatus" id="page-{{ $page['id'] }}" page_id = "{{ $page['id'] }}" href="javascript:void(0)">
-                                                            <i class="fa fa-toggle-on" status = "Active"></i></a>
-                                                        @else
-                                                            <a class="updateCmsPageStatus" id="page-{{ $page['id'] }}" page_id = "{{ $page['id'] }}" href="javascript:void(0)">
-                                                            <i class="fa fa-toggle-off" status = "Inactive"></i></a>
-                                                        @endif
-                                                        &nbsp;&nbsp;
-                                                        @endif
-                                                        @if($pagesModule['edit_access']==1 || $pagesModule['full_access']==1)
-                                                            <a href="{{ url('admin/add-edit-cms-page/'.$page['id']) }}"><i class="fa fa-edit"></i></a>
-                                                        &nbsp;&nbsp;
-                                                        @endif
-                                                    @if($pagesModule['full_access']==1)
-                                                            <a href="{{ url('admin/delete-cms-page/'.$page['id']) }}"><i class="fa fa-trash"></i></a>
-                                                            @endif
-                                                    </td> --}}
-                                                    {{-- <td><!-- Add actions here if needed --></td> --}}
+                                                   <td class="text-center">
+                                                            <a href="{{ url('admin/project-details/'. $projectForm->id ) }}"><i class="fa fa-eye"></i></a>
+                                                            {{-- &nbsp;&nbsp;
+                                                            <a href="{{ url('admin/delete-sub-category/'.$projectForm->id) }}"><i class="fa fa-trash"></i></a>       --}}
+                                                        </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -117,7 +102,7 @@
                                                     <th>COMPANY NAME</th>
                                                     <th>TOTAL EMPLOYEE</th>
                                                     <th>CREATED AT</th>
-                                                    {{-- <th>ACTIONS</th> --}}
+                                                    <th>ACTIONS</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
