@@ -4,18 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
+use Session;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
+
 
 class ServiceController extends Controller
 {
     public function index()
-    {
-        $service = Service::get()->toArray();
-        //dd($services);
-        return view('admin.services.services')->with(compact('Service'));
-    }
+{
+    Session::put('page', 'services');
 
-        public function addEditService(Request $request, $id)
+    $services = Service::get()->toArray();
+    return view('admin.services.services', compact('services'));
+}
+
+
+        public function addEditService(Request $request, $id  = null)
     {
         Session::put('page', 'add_services');
 
@@ -77,7 +84,7 @@ class ServiceController extends Controller
             // Save the data
             $servicedata->save();
 
-            return redirect('wise-corporation/services')->with('success_message', $message);
+            return redirect('admin/services')->with('success_message', $message);
         }
 
         return view('admin.services.add_edit_service')->with(compact('title', 'servicedata'));

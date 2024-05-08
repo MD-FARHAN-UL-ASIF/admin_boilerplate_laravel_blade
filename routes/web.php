@@ -32,6 +32,9 @@
             Route::get('project', 'AdminController@projectForm');
             Route::get('project-details/{id}', 'AdminController@projectFormById');
 
+            //services
+            Route::get('services', 'ServiceController@index');
+            Route::match(['get', 'post'],'add-edit-service/{id?}', 'ServiceController@addEditService');
 
 
                     //subadmin
@@ -46,8 +49,7 @@
         });
     });
 
-    //services
-    Route::get('wise-corporation/services', 'ServiceController@index');
+    
 
 
 

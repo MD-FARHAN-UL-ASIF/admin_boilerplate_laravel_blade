@@ -73,6 +73,30 @@
             <li class="nav-item {{ $active }}"><a href="{{ url('admin/project') }}"><i
                         class="feather icon-slack"></i><span class="menu-title"
                         data-i18n="CmsPage">Project Request</span></a></li>
+
+
+
+            @php
+            $active = Session::get('page') == 'services' || Session::get('page') == 'add_services' ? 'active' : '';              
+            @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-activity"></i><span class="menu-title"
+                        data-i18n="Users">Services</span></a>
+                <ul class="menu-content">
+                    @php
+                    $active = Session::get('page') == 'services' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url("admin/services") }}" data-i18n="Vertical">Manage Services</a>
+                    </li>
+                    
+                    @php
+                    $active = Session::get('page') == 'add_services' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url('admin/add-edit-service') }}" data-i18n="Vertical">Add Service</a>
+                    </li>
+                </ul>
+            </li>
             
         </ul>
     </div>
