@@ -80,7 +80,7 @@
             $active = Session::get('page') == 'services' || Session::get('page') == 'add_services' ? 'active' : '';              
             @endphp
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-activity"></i><span class="menu-title"
-                        data-i18n="Users">Services</span></a>
+                        data-i18n="Service">Services</span></a>
                 <ul class="menu-content">
                     @php
                     $active = Session::get('page') == 'services' ? 'active' : '';
@@ -94,6 +94,28 @@
                     @endphp
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ url('admin/add-edit-service') }}" data-i18n="Vertical">Add Service</a>
+                    </li>
+                </ul>
+            </li>
+
+             @php
+            $active = Session::get('page') == 'category' || Session::get('page') == 'add_category' ? 'active' : '';              
+            @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-wind"></i><span class="menu-title"
+                        data-i18n="Categories">Categories</span></a>
+                <ul class="menu-content">
+                    @php
+                    $active = Session::get('page') == 'category' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url("admin/categories") }}" data-i18n="Vertical">Manage Category</a>
+                    </li>
+                    
+                    @php
+                    $active = Session::get('page') == 'add_category' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url('admin/add-edit-category') }}" data-i18n="Vertical">Add Category</a>
                     </li>
                 </ul>
             </li>

@@ -37,6 +37,11 @@
             Route::match(['get', 'post'],'add-edit-service/{id?}', 'ServiceController@addEditService');
             Route::get('delete-service/{id?}', 'ServiceController@deleteService');
 
+            //category
+            Route::get('categories','CategoryController@category');
+            Route::match(['get', 'post'], 'add-edit-category/{id?}', 'CategoryController@addEditCategory');
+            Route::get('delete-category/{id?}', 'CategoryController@deleteCategory');
+
 
                     //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
