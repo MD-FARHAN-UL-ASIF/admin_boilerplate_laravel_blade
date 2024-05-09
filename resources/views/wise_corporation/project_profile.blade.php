@@ -37,7 +37,7 @@
                         ক্যাটাগরি ও প্রাইস জানতে এবং কিনতে হলে এখনই নিচের বাটন এ ক্লিক করুন।</p>
                     <div class="d-flex justify-content-center cta-btn-section">
                         <a class="join-btn rounded my-2"
-                            href="https://quickdigital.online/mobilediyevideoeditingcourse1/quick-digital-%E0%A6%8F%E0%A6%B0-%E0%A6%AA%E0%A6%95%E0%A6%B7-%E0%A6%A5%E0%A6%95-%E0%A6%86%E0%A6%AA%E0%A6%A8%E0%A6%95-%E0%A6%B8%E0%A6%AC/">
+                            href="{{ url('wise-corporation/project-profile#list') }}">
                             <button class="btn px-3 py-2 fs-3 fw-bold text-white">অর্ডার করুন</button>
                         </a>
                         <div class="join-btn rounded my-2 _df_button btn px-3 py-2 fs-3 fw-bold text-white" source="{{ asset('front/assets/documents/CAIE_A review of applications in federated learning_deposit.pdf') }}"> স্যাম্পল দেখুন </div>
@@ -125,7 +125,7 @@
                 </div>
             </div>
         </section>
-        <section class="container max-width custom-padding my-5 pp-list">
+        <section class="container max-width custom-padding my-5 pp-list" id="list">
             <h3 class="text-center display-5 fw-bold border-bottom border-top py-4 px-2">
                 আমরা যেসব প্রজেক্ট প্রোফাইল তৈরি করে থাকি
             </h3>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\AdminsPermission;
+use App\Models\ContactForm;
 use App\Models\User;
 use App\Models\ProjectForms;
 use Illuminate\Support\Facades\Validator;
@@ -488,11 +489,22 @@ public function checkCurrentPassword(Request $request)
 
         }
 
-                //view project by project_id
-                public function projectFormById($id)
-                {   
-                    $projectForm = ProjectForms::findOrFail($id);
-                    return view('admin.project.details')->with(compact('projectForm'));
-                }
+        //view project by project_id
+        public function projectFormById($id)
+        {   
+            $projectForm = ProjectForms::findOrFail($id);
+            return view('admin.project.details')->with(compact('projectForm'));
+        }
+
+          //view all contact request
+        public function contactForm()
+        {
+            Session::put('page', 'contact');
+
+            $contactForms = ContactForm::all();
+
+            return view('admin.contactForm', compact('contactForms'));
+
+        }
 
 }

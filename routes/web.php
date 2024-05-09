@@ -46,7 +46,10 @@
             //books
              Route::get('books','CategoryController@books');
             Route::match(['get', 'post'], 'add-edit-book/{id?}', 'CategoryController@addEditBook');
-            Route::get('delete-book/{id?}', 'CategoryController@deleteBook');           
+            Route::get('delete-book/{id?}', 'CategoryController@deleteBook');   
+            
+            //contact_Request
+            Route::get('contactRequest', 'AdminController@contactForm');
 
                     //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
@@ -85,6 +88,39 @@ Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->gro
     Route::get('service','HomeController@service');
     Route::get('project-profile', 'HomeController@projectProfile');
     Route::get('books-by-category/{category_id}', 'HomeController@booksByCategory');
+    Route::get('contact-us', 'HomeController@contactUs');
+    Route::post('contactFormSubmit', 'HomeController@submitContactForm');
+});
+
+Route::get('wise-corporation/index', function () {
+return view('wise_corporation.index');
+});
+Route::get('wise-corporation/checkout', function () {
+return view('wise_corporation.checkout');
+});
+
+Route::get('wise-corporation/privacy-policy', function () {
+return view('wise_corporation.privacy_policy');
+});
+
+Route::get('wise-corporation/terms&condition', function () {
+return view('wise_corporation.terms');
+});
+
+Route::get('wise-corporation/refund-policy', function () {
+return view('wise_corporation.refund');
+});
+
+Route::get('wise-corporation/contact-us', function () {
+return view('wise_corporation.contact_us');
+});
+
+Route::get('wise-corporation/email', function () {
+return view('wise_corporation.email');
+});
+
+Route::get('wise-corporation/track-order', function () {
+return view('wise_corporation.track_order');
 });
 
     Route::get('/admin/errors/error_403', function () {
@@ -93,44 +129,3 @@ Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->gro
     })->name('admin.errors.error_403');
 
 
-    Route::get('wise-corporation/index', function () {
-    return view('wise_corporation.index');
-});
-// Route::get('wise-corporation/project-profile', function () {
-//     return view('wise_corporation.project_profile');
-// });
-
-// Route::get('wise-corporation/category', function () {
-//     return view('wise_corporation.category');
-// });
-
-// Route::get('wise-corporation/service', function () {
-//     return view('wise_corporation.service');
-// });
-Route::get('wise-corporation/checkout', function () {
-    return view('wise_corporation.checkout');
-});
-
-Route::get('wise-corporation/privacy-policy', function () {
-    return view('wise_corporation.privacy_policy');
-});
-
-Route::get('wise-corporation/terms&condition', function () {
-    return view('wise_corporation.terms');
-});
-
-Route::get('wise-corporation/refund-policy', function () {
-    return view('wise_corporation.refund');
-});
-
-Route::get('wise-corporation/contact-us', function () {
-    return view('wise_corporation.contact_us');
-});
-
-Route::get('wise-corporation/email', function () {
-    return view('wise_corporation.email');
-});
-
-Route::get('wise-corporation/track-order', function () {
-    return view('wise_corporation.track_order');
-});
