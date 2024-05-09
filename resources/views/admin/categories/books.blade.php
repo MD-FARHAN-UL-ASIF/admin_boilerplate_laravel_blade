@@ -68,12 +68,12 @@
                                                     <tr>
                                                         <td>{{ $book->id }}</td>
                                                         <td style="width: 100px; height: 100px; padding: 0;">
-    @if (!empty($book['image']))
-    <img src="{{ asset('admin/images/book_images/' . $book['image']) }}" class="img-fluid rounded" alt="Service Image" style="width: 100%; height: 100%; object-fit: cover;">
-    @else
-    <img src="{{ asset('admin/images/book_images/no_image.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;">
-    @endif
-</td>
+                                                            @if (!empty($book['image']))
+                                                            <img src="{{ asset('admin/images/book_images/' . $book['image']) }}" class="img-fluid rounded" alt="Service Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                                            @else
+                                                            <img src="{{ asset('admin/images/book_images/no_image.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                                            @endif
+                                                        </td>
 
                                                         <td>{{ $book->title }}</td>
                                                         <td>{{ $book->sub_title }}</td>

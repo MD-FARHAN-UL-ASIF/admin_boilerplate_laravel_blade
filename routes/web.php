@@ -83,6 +83,7 @@
 
 Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->group(function(){
     Route::get('service','HomeController@service');
+    Route::get('project-profile', 'HomeController@projectProfile');
 });
 
     Route::get('/admin/errors/error_403', function () {
@@ -94,9 +95,9 @@ Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->gro
     Route::get('wise-corporation/index', function () {
     return view('wise_corporation.index');
 });
-Route::get('wise-corporation/project-profile', function () {
-    return view('wise_corporation.project_profile');
-});
+// Route::get('wise-corporation/project-profile', function () {
+//     return view('wise_corporation.project_profile');
+// });
 
 Route::get('wise-corporation/category', function () {
     return view('wise_corporation.category');
