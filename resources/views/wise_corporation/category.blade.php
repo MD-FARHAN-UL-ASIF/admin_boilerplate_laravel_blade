@@ -3,7 +3,12 @@
     @section('content')
         <main class="bg__main py-5">
         <section class="container max-width custom-padding">
-            <img class="col-12 img-fluid" src="{{ asset('front/assets/images/demo.png') }}" alt="">
+            {{-- <img class="col-12 img-fluid" src="{{ asset('front/assets/images/demo.png') }}" alt=""> --}}
+            @if (!empty($category['image']))
+                    <img src="{{ asset('admin/images/category_images/' . $category['image']) }}" class="col-12 img-fluid" alt="Service Image">
+            @else
+                    <img src="{{ asset('admin/images/category_images/no_image.jpg') }}" class="col-12 img-fluid" alt="No Image">
+            @endif
         </section>
         <section class="container max-width custom-padding pt-5">
             <div class="row justify-content-between align-items-center py-2 --breadcrumb">
@@ -18,7 +23,7 @@
                                     ক্যাটাগরি
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active fw-semibold" aria-current="page">কৃষি</li>
+                            <li class="breadcrumb-item active fw-semibold" aria-current="page">{{ $category['name'] }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -37,53 +42,54 @@
                 <!-- order-2 -->
                 <div class="co-12 col-md-8 order-lg-3 order-md-1 pp__category__list">
                     <div class="row gap-3 mx-1">
+                        @foreach ($books as $book)
                         <div class="col-12">
                             <div class="row justify-content-between align-items-center category">
                                 <div class="col-12 col-lg-4 order-lg-2">
                                     <div class="img-container">
-                                        <img class="category-img" src="{{ asset('front/assets/images/1.png') }}" alt="">
+                                        {{-- <img class="category-img" src="{{ asset('front/assets/images/1.png') }}" alt=""> --}}
+                                        @if (!empty($book['image']))
+                                            <img src="{{ asset('admin/images/book_images/' . $book['image']) }}" class="category-img img-fluid" alt="Book Image">
+                                            @else
+                                            <img src="{{ asset('admin/images/book_images/no_image.jpg') }}" class="category-img img-fluid" alt="No Image">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-8 order-lg-1">
-                                    <h3 class="mb-3">title</h3>
-                                    <h5 class="mb-3">sub heading</h5>
+                                    <h3 class="mb-3">{{ $book['title'] }}</h3>
+                                    <h5 class="mb-3">{{ $book['sub_title'] }}</h5>
                                     <table class="table table-borderless"
                                         style="background-color: transparent; width: 100%;">
                                         <tbody>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">ইনভেস্টমেন্ট সাইজ:</td>
-                                                <td>১,১৭০,০০০,০০০ (একশত সতের কোটি টাকা)</td>
+                                                <td>{{ $book['investment_size'] }}</td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">নেট ইনকাম:</td>
-                                                <td>২৩৫,৬০০,০০০ (তেইশ কোটি ছাপ্পান্ন লক্ষ টাকা) - প্রতি বছর</td>
+                                                <td>{{ $book['net_income'] }}</td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">IRR:</td>
-                                                <td>১৩.৭১%</td>
+                                                <td>{{ $book['irr'] }}</td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">পেব্যাক পিরিয়ড:</td>
-                                                <td>৪.৭ বছর</td>
+                                                <td>{{ $book['payback_period'] }}</td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">বিবরণ:</td>
                                                 <td class="category__description">
-                                                    একটি শান্ত সকালে, নদীর তীরে বসে সূর্যোদয় দেখছিলাম। আকাশে রঙিন আলো
-                                                    ফুটে উঠছিল, আর পাখিরা কিচিরমিচির শব্দ করছিল। নদীর পানি শান্ত ছিল এবং
-                                                    হালকা বাতাসে পাতারা দুলছিল। এই মনোরম পরিবেশে বসে কিছুক্ষণ প্রকৃতির
-                                                    সৌন্দর্য উপভোগ করলাম। হঠাৎ কাছের একটি গাছ থেকে একটি পাখি উড়ে গেল
-                                                    এবং আমি তার উড়ন্ত শৈলীর প্রশংসা করলাম। সকালে এই শান্ত মুহূর্তটি
-                                                    আমার মনে দীর্ঘকাল ধরে থাকবে।
+                                                    {{ $book['description'] }}
                                                 </td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">মূল্য:</td>
-                                                <td>২০,০০০<span class="fw-semibold">৳</span></td>
+                                                <td>{{ $book['price'] }}<span class="fw-semibold">৳</span></td>
                                             </tr>
                                             <tr style="background-color: transparent;">
                                                 <td class="fw-semibold" style="width: 35%;">সর্বশেষ সংস্করণ:</td>
-                                                <td>২রা মে, ২০২৪</td>
+                                                <td>{{ date("F j, Y, g:i a", strtotime($book['updated_at'])); }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -102,7 +108,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
+                                        @endforeach
+
+                        {{-- <div class="col-12">
                             <div class="row justify-content-between align-items-center category">
                                 <div class="col-12 col-lg-4 order-lg-2">
                                     <div class="img-container">
@@ -166,7 +174,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- middle -->

@@ -186,7 +186,7 @@
                         <div class="col-12 col-md-6 mb-3">
                             <!-- Category Name -->
                             <a class="text-decoration-none d-flex align-items-center gap-2 text-black fs-5 fw-semibold"
-                                href="{{ url('wise-corporation/category') }}">
+                                 href="{{ url('wise-corporation/books-by-category/'.$categoryId) }}">
                                 <span>{{ $books->first()->category->name }}</span>
                                 <ion-icon name="albums"></ion-icon>
                             </a>
