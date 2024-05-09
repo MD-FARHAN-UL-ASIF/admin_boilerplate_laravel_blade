@@ -61,9 +61,9 @@
                                                     <td>{{ $category['name'] }}</td>
                                                     <td>
                                                         @if (!empty($category['image']))
-                                                        <img src="{{ asset('admin/images/category_images/' . $category['image']) }}" class="img-fluid rounded" style="width: 100px; height: auto;" alt="Service Image">
+                                                        <img src="{{ asset('admin/images/category_images/' . $category['image']) }}" class="img-fluid rounded" style="width: 200px; height: 100px ; object-fit: cover;" alt="Service Image">
                                                         @else
-                                                        <img src="{{ asset('admin/images/category_images/no_image.jpg') }}" class="img-fluid rounded" style="width: 100px; height: auto;" alt="No Image">
+                                                        <img src="{{ asset('admin/images/category_images/no_image.jpg') }}" class="img-fluid rounded" style="width: 200px; height: 100px; object-fit: cover;" alt="No Image">
                                                         @endif
                                                     </td>
                                                     <td class="text-center">

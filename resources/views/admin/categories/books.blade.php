@@ -6,12 +6,12 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">SUB CATEGORIES</h3>
+                <h3 class="content-header-title mb-0">BOOKS</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Sub Categories</li>
+                            <li class="breadcrumb-item active">BOOKS</li>
                         </ol>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ url('admin/add-edit-sub-category') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Sub-Category</button></a>
+                                <a href="{{ url('admin/add-edit-book') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Project Profile /Book</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -49,6 +49,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>IMAGE</th>
                                                     <th>Title</th>
                                                     <th>Sub-title</th>
                                                     <th>Investment Size</th>
@@ -63,23 +64,31 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                               @foreach ($subCategories as $subCategory)
+                                               @foreach ($books as $book)
                                                     <tr>
-                                                        <td>{{ $subCategory->id }}</td>
-                                                        <td>{{ $subCategory->title }}</td>
-                                                        <td>{{ $subCategory->sub_title }}</td>
-                                                        <td>{{ $subCategory->investment_size }}</td>
-                                                        <td>{{ $subCategory->net_income }}</td>
-                                                        <td>{{ $subCategory->irr }}</td>
-                                                        <td>{{ $subCategory->payback_period }}</td>
-                                                        <td>{{ $subCategory->description }}</td>
-                                                        <td>{{ $subCategory->price }}</td>
-                                                        <td>{{ $subCategory->category->name }}</td> <!-- Access category name through the relationship -->
-                                                        <td>{{ date("F j, Y, g:i a", strtotime($subCategory['updated_at'])); }}</td>
+                                                        <td>{{ $book->id }}</td>
+                                                        <td style="width: 100px; height: 100px; padding: 0;">
+    @if (!empty($book['image']))
+    <img src="{{ asset('admin/images/book_images/' . $book['image']) }}" class="img-fluid rounded" alt="Service Image" style="width: 100%; height: 100%; object-fit: cover;">
+    @else
+    <img src="{{ asset('admin/images/book_images/no_image.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;">
+    @endif
+</td>
+
+                                                        <td>{{ $book->title }}</td>
+                                                        <td>{{ $book->sub_title }}</td>
+                                                        <td>{{ $book->investment_size }}</td>
+                                                        <td>{{ $book->net_income }}</td>
+                                                        <td>{{ $book->irr }}</td>
+                                                        <td>{{ $book->payback_period }}</td>
+                                                        <td>{{ $book->description }}</td>
+                                                        <td>{{ $book->price }}</td>
+                                                        <td>{{ $book->category->name }}</td> <!-- Access category name through the relationship -->
+                                                        <td>{{ date("F j, Y, g:i a", strtotime($book['updated_at'])); }}</td>
                                                         <td class="text-center">
-                                                            <a href="{{ url('admin/add-edit-sub-category/'. $subCategory->id ) }}"><i class="fa fa-edit"></i></a>
+                                                            <a href="{{ url('admin/add-edit-book/'. $book->id ) }}"><i class="fa fa-edit"></i></a>
                                                             &nbsp;&nbsp;
-                                                            <a href="{{ url('admin/delete-sub-category/'.$subCategory->id) }}"><i class="fa fa-trash"></i></a>      
+                                                            <a href="{{ url('admin/delete-book/'.$book->id) }}"><i class="fa fa-trash"></i></a>      
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -88,6 +97,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>IMAGE</th>
                                                     <th>Title</th>
                                                     <th>Sub-title</th>
                                                     <th>Investment Size</th>

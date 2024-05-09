@@ -121,23 +121,23 @@
             </li>
 
             @php
-            $active = Session::get('page') == 'sub_category' || Session::get('page') == 'add_sub_category' ? 'active' : '';              
+            $active = Session::get('page') == 'books' || Session::get('page') == 'add_book' ? 'active' : '';              
             @endphp
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-wind"></i><span class="menu-title"
-                        data-i18n="Sub_categories">Sub-categories</span></a>
+                        data-i18n="books">BOOKS</span></a>
                 <ul class="menu-content">
                     @php
-                    $active = Session::get('page') == 'sub_category' ? 'active' : '';
+                    $active = Session::get('page') == 'books' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url("admin/sub-categories") }}" data-i18n="Vertical">Manage Sub-category</a>
+                        <a class="menu-item" href="{{ url("admin/books") }}" data-i18n="Vertical">Manage Books</a>
                     </li>
                     
                     @php
-                    $active = Session::get('page') == 'add_sub_category' ? 'active' : '';
+                    $active = Session::get('page') == 'add_book' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url('admin/add-edit-sub-category') }}" data-i18n="Vertical">Add Sub-category</a>
+                        <a class="menu-item" href="{{ url('admin/add-edit-book') }}" data-i18n="Vertical">Add Book</a>
                     </li>
                 </ul>
             </li>

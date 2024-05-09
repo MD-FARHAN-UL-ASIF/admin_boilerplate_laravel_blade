@@ -60,53 +60,84 @@
                                         </ul>
                                     </div>
                                     @endif
-                                    <form name="subCategoryForm" id="subCategoryForm" @if(empty($sub_category['id'])) action="{{ url('admin/add-edit-sub-category') }}" @else action="{{ url('admin/add-edit-sub-category/'.$sub_category['id']) }}" @endif method="POST">
+                                    <form name="bookForm" id="bookForm" enctype="multipart/form-data" @if(empty($books['id'])) action="{{ url('admin/add-edit-book') }}" @else action="{{ url('admin/add-edit-book/'.$books['id']) }}" @endif method="POST">
                                         @csrf
                                         <div class="form-body">
+                                            <div class="media">
+                                                    @if (!empty($books['image']))
+                                                        <a href="{{ asset('admin/images/book_images/' . $books['image']) }}"
+                                                            target="blank">
+                                                            <img src="{{ asset('admin/images/book_images/' . $books['image']) }}"
+                                                                class="rounded mr-75" alt="book image" height="64"
+                                                                width="64">
+                                                        </a>
+                                                    @else
+                                                        <a href="{{ asset('admin/images/book_images/no_image.jpg') }}"
+                                                            target="blank">
+                                                            <img src="{{ asset('admin/images/book_images/no_image.jpg') }}"
+                                                                class="rounded mr-75" alt="book image" height="64"
+                                                                width="64">
+                                                        </a>
+                                                    @endif
+                                                        <div class="media-body mt-75">
+                                                        <div
+                                                            class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                            <label
+                                                                class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
+                                                                for="image">Upload new photo</label>
+                                                            <input type="file" id="image"
+                                                                name="image" accept="image/*" hidden>
+                                                            <button
+                                                                class="btn btn-sm btn-secondary ml-50">Reset</button>
+                                                        </div>
+                                                        <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or
+                                                                PNG. Max size of 800kB</small></p>
+                                                        </div>
+                                                </div>
                                             <div class="form-group">
                                                 <label for="category_id">Category</label>
                                                 <select id="category_id" class="form-control round" name="category_id">
                                                     <option value="">Select Category</option>
                                                     @foreach($categories as $categoryId => $categoryName)
-                                                    <option value="{{ $categoryId }}" @if(isset($sub_category['category_id']) && $sub_category['category_id'] == $categoryId) selected @endif>{{ $categoryName }}</option>
+                                                    <option value="{{ $categoryId }}" @if(isset($books['category_id']) && $books['category_id'] == $categoryId) selected @endif>{{ $categoryName }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input type="text" id="title" class="form-control round" placeholder="Enter Title" name="title" @if(!empty($sub_category['title'])) value="{{ $sub_category['title'] }}" @endif>
+                                                <input type="text" id="title" class="form-control round" placeholder="Enter Title" name="title" @if(!empty($books['title'])) value="{{ $books['title'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="sub_title">Sub Title</label>
-                                                <input type="text" id="sub_title" class="form-control round" placeholder="Enter Sub Title" name="sub_title" @if(!empty($sub_category['sub_title'])) value="{{ $sub_category['sub_title'] }}" @endif>
+                                                <input type="text" id="sub_title" class="form-control round" placeholder="Enter Sub Title" name="sub_title" @if(!empty($books['sub_title'])) value="{{ $books['sub_title'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="investment_size">Investment Size</label>
-                                                <input type="text" id="investment_size" class="form-control round" placeholder="Enter Investment SIze" name="investment_size" @if(!empty($sub_category['investment_size'])) value="{{ $sub_category['investment_size'] }}" @endif>
+                                                <input type="text" id="investment_size" class="form-control round" placeholder="Enter Investment SIze" name="investment_size" @if(!empty($books['investment_size'])) value="{{ $books['investment_size'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="net_income">Net Income</label>
-                                                <input type="text" id="net_income" class="form-control round" placeholder="Enter Net Income" name="net_income" @if(!empty($sub_category['net_income'])) value="{{ $sub_category['net_income'] }}" @endif>
+                                                <input type="text" id="net_income" class="form-control round" placeholder="Enter Net Income" name="net_income" @if(!empty($books['net_income'])) value="{{ $books['net_income'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="irr">IRR</label>
-                                                <input type="text" id="irr" class="form-control round" placeholder="Enter IRR" name="irr" @if(!empty($sub_category['irr'])) value="{{ $sub_category['irr'] }}" @endif>
+                                                <input type="text" id="irr" class="form-control round" placeholder="Enter IRR" name="irr" @if(!empty($books['irr'])) value="{{ $books['irr'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="payback_period">Payback Period</label>
-                                                <input type="text" id="payback_period" class="form-control round" placeholder="Enter Payback Period" name="payback_period" @if(!empty($sub_category['payback_period'])) value="{{ $sub_category['payback_period'] }}" @endif>
+                                                <input type="text" id="payback_period" class="form-control round" placeholder="Enter Payback Period" name="payback_period" @if(!empty($books['payback_period'])) value="{{ $books['payback_period'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <input type="text" id="description" class="form-control round" placeholder="Enter Description" name="description" @if(!empty($sub_category['description'])) value="{{ $sub_category['description'] }}" @endif>
+                                                <input type="text" id="description" class="form-control round" placeholder="Enter Description" name="description" @if(!empty($books['description'])) value="{{ $books['description'] }}" @endif>
                                             </div>
                                             <div class="form-group">
                                                 <label for="price">Price</label>
-                                                <input type="text" id="price" class="form-control round" placeholder="Enter Price" name="price" @if(!empty($sub_category['price'])) value="{{ $sub_category['price'] }}" @endif>
+                                                <input type="text" id="price" class="form-control round" placeholder="Enter Price" name="price" @if(!empty($books['price'])) value="{{ $books['price'] }}" @endif>
                                             </div>
                                         </div>
                                         <div class="form-actions center">
-                                            <a href="{{ url('admin/sub_categories') }}" class="btn btn-warning mr-1">
+                                            <a href="{{ url('admin/books') }}" class="btn btn-warning mr-1">
                                                 <i class="feather icon-x"></i> Cancel
                                             </a>
                                             <button type="submit" class="btn btn-primary">

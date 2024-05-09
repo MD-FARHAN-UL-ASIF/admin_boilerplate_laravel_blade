@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Sub_category;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -89,28 +89,28 @@ class CategoryController extends Controller
     }
 
 
-    public function sub_category()
+    public function books()
     {
-        Session::put('page', 'sub_category');
+        Session::put('page', 'books');
 
-        $subCategories = Sub_category::with('category')->get();
+        $books = Book::with('category')->get();
 
-        return view('admin.categories.sub_categories', compact('subCategories'));
+        return view('admin.categories.books', compact('books'));
     }
 
 
-    public function addEditSubCategory(Request $request, $id = null)
+    public function addEditBook(Request $request, $id = null)
 {
-    Session::put('page', 'add_sub_category');
+    Session::put('page', 'add_book');
 
     if ($id == "") {
-        $title = "Add Sub Category";
-        $sub_category = new Sub_category;
-        $message = "Sub Category added successfully";
+        $title = "Add Book";
+        $books = new Book;
+        $message = "Book added successfully";
     } else {
-        $title = "Edit Sub Category";
-        $sub_category = Sub_category::findOrFail($id);
-        $message = "Sub Category edited successfully";
+        $title = "Edit Book";
+        $books = Book::findOrFail($id);
+        $message = "Book edited successfully";
     }
 
     if ($request->isMethod('post')) {
@@ -149,37 +149,56 @@ class CategoryController extends Controller
             return redirect()->back()->with('error_message', $validator->errors()->first());
         }
 
-        $sub_category->title = $data['title'];
-        $sub_category->sub_title = $data['sub_title'];
-        $sub_category->investment_size = $data['investment_size'];
-        $sub_category->net_income = $data['net_income'];
-        $sub_category->irr = $data['irr'];
-        $sub_category->payback_period = $data['payback_period'];
-        $sub_category->description = $data['description'];
-        $sub_category->price = $data['price'];
-        $sub_category->category_id = $data['category_id'];
+         // Check if image was uploaded
+        if ($request->hasFile('image')) {
+            $image_tmp = $request->file('image');
+            if ($image_tmp->isValid()) {
+                // Get image extension
+                $extension = $image_tmp->getClientOriginalExtension();
+                // Generate new image name
+                $image_name = rand(111, 99999) . '.' . $extension;
+                $image_path = 'admin/images/book_images/' . $image_name;
+                // Save image
+                Image::make($image_tmp)->save($image_path);
+                // Assign image name to data
+                $books->image = $image_name;
+            }
+        } elseif (!$books->image) {
+                // If no image was uploaded and no image is already set, assign default image
+                $books->image = 'no_image.jpg';
+            }
 
-        $sub_category->save();
+        $books->title = $data['title'];
+        $books->sub_title = $data['sub_title'];
+        $books->investment_size = $data['investment_size'];
+        $books->net_income = $data['net_income'];
+        $books->irr = $data['irr'];
+        $books->payback_period = $data['payback_period'];
+        $books->description = $data['description'];
+        $books->price = $data['price'];
+        $books->category_id = $data['category_id'];
 
-        return redirect('admin/sub-categories')->with('success_message', $message);
+        $books->save();
+
+        return redirect('admin/books')->with('success_message', $message);
     }
 
     // Retrieve all categories to populate the category dropdown
     $categories = Category::pluck('name', 'id');
 
-    return view('admin.categories.add_edit_sub_category')->with(compact('title', 'sub_category', 'categories'));
+    return view('admin.categories.add_edit_book')->with(compact('title', 'books', 'categories'));
 }
 
-    public function deleteSubCategory($id)
+    public function deleteBook($id)
     {
         try {
-            $subCategory = Sub_category::findOrFail($id);
+            $books = Book::findOrFail($id);
 
-            $subCategory->delete();
+            $books->delete();
 
-            return redirect()->back()->with('success_message', 'Sub Category deleted successfully.');
+            return redirect()->back()->with('success_message', 'Book deleted successfully.');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error_message', 'Failed to delete Sub Category.');
+            return redirect()->back()->with('error_message', 'Failed to delete Book.');
         }
     }
 
