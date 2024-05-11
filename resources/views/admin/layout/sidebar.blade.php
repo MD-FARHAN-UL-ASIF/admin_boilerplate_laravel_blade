@@ -147,7 +147,7 @@
             @endphp
             <li class="nav-item {{ $active }}"><a href="{{ url('admin/contactRequest') }}"><i
                         class="feather icon-help-circle"></i><span class="menu-title"
-                        data-i18n="CmsPage">Contact Request</span></a></li>
+                        data-i18n="contact">Contact Request</span></a></li>
             
         </ul>
     </div>

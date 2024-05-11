@@ -25,7 +25,7 @@ class HomeController extends Controller
         return view('wise_corporation.project_profile', compact('booksByCategory'));
     }
 
-    
+    //project-profile/book by category
     public function booksByCategory($category_id)
     {
         // Session::put('page', 'books-by-category');
@@ -37,6 +37,16 @@ class HomeController extends Controller
 
         return view('wise_corporation.category', compact('category', 'books'));
     }
+
+    //project-profile/book by id
+   public function booksById($id)
+{
+    $book = Book::findOrFail($id);
+    $category = $book->category; 
+
+    return view('wise_corporation.book_individual', compact('book', 'category'));
+}
+
 
     public function contactUs()
     {

@@ -67,11 +67,14 @@
                      </form>
                  </div>
                  <div class="col-12 col-md-5 map-container">
-                     <iframe
-                         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d645.2656522081877!2d90.41238936957501!3d23.81241990846591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1714388731377!5m2!1sen!2sbd"
-                         class="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                         referrerpolicy="no-referrer-when-downgrade"></iframe>
-                 </div>
+    <div style="position: relative; padding-bottom: 75%;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7300.378273799061!2d90.4143969!3d23.8118725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70036f76d97%3A0x8b917cf4ad1c566d!2sWISE%20Corporation!5e0!3m2!1sen!2sbd!4v1715407797387!5m2!1sen!2sbd" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100% !important; border: 0;" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
              </div>
          </section>
      </main>

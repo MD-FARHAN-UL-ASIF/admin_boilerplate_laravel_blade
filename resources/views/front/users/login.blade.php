@@ -128,7 +128,7 @@
                                     <p
                                         class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
                                         <span>New to
-                                            Stack ?</span>
+                                            <strong>WISE CORPORATION</strong> ?</span>
                                     </p>
                                     <div class="card-body">
                                         <a href="{{ url('user/register') }}"

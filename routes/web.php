@@ -86,6 +86,7 @@
 
 Route::prefix('/wise-corporation')->namespace('App\Http\Controllers\Front')->group(function(){
     Route::get('service','HomeController@service');
+    Route::get('service-individual/{id}','HomeController@booksById');
     Route::get('project-profile', 'HomeController@projectProfile');
     Route::get('books-by-category/{category_id}', 'HomeController@booksByCategory');
     Route::get('contact-us', 'HomeController@contactUs');

@@ -199,7 +199,7 @@
                                             <ion-icon height="16px" width="16px" name="chevron-forward"></ion-icon>
                                         </div>
                                         <p class="my-auto text-two text-start">
-                                            <a href="{{ url('./service.html') }}" class="text-decoration-none text-dark">
+                                            <a href="{{ url('wise-corporation/service-individual/'.$book->id) }}" class="text-decoration-none text-dark">
                                                 {{ $book->title }}
                                             </a>
                                         </p>
